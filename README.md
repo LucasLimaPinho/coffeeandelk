@@ -31,6 +31,10 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 
       **Not sent to appender**: log.trace(), log.debug() & longo & info
       **Sent to appender**: log.warn() & log.error()
+      
+8. Spring Boot already has **Jackson** to serialize/marshall Plain Old Java Objects (POJO) to JSON; POJO are objects from classes that has no business logic - only method for setters, getters, toString, equals, hashCode; Gradle already handles Jackson dependency; For converting POJO into JSON, Jackson will call GETTERS; For converting JSON to POJO, Jackson will call SETTERS;
+9. To convert JSON to POJO, the class must be public; The class must have no-arguments constructor that are automatically created by Java with ALT+SHIFT+S; You can't define any other constructor for the serialization with Jackson to work;
+
      
 
 #### Why Gradle?
