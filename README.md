@@ -22,5 +22,5 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 1. Easy dependency injection;
 2. Automation of configuration with annotations;
 3. Spring IOC (Inversion of Control) manages dependencies;
-
+4. We can use @Annotations right before the method to be called (@RequestMapping, @GetMapping, @PostMapping) etc.
 
