@@ -12,7 +12,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 
 ####  Dependencies
 
-1. Graddle Project
+1. Gradle Project
 2. Oracle JDK-11.0.8
 3. Spring Boot 2.3.4
 
