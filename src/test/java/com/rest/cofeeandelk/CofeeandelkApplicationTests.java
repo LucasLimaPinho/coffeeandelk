@@ -1,10 +1,10 @@
-package com.course.practicaljava;
+package com.rest.cofeeandelk;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PracticalJavaApplicationTests {
+class CofeeandelkApplicationTests {
 
 	@Test
 	void contextLoads() {
