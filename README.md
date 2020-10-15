@@ -8,7 +8,6 @@ https://www.elastic.co/guide/en/kibana/current/install.html
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
 
-https://www.udemy.com/course/practical-java-spring-boot-rest-api-with-elasticsearch/
 
 
 ####  Dependencies
