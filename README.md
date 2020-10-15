@@ -6,6 +6,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 
 https://www.elastic.co/guide/en/kibana/current/install.html
 
+https://start.spring.io/
+
 https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
 
 
