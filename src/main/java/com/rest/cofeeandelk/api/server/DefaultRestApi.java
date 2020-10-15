@@ -9,7 +9,7 @@ public class DefaultRestApi {
 	
 	@RequestMapping(value = "/welcome")
 	public String welcome() {
-		return "Welcome to Coffe & TV, oops, Elastic Stack (ElasticSearch, Logstash and Kibana)!";
+		return "Just give me Coffe & TV, oops, Elastic Stack (ElasticSearch, Logstash and Kibana)!";
 	}
 
 }
