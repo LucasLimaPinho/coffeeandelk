@@ -1,7 +1,15 @@
 logging:
   pattern:
     console: "[Coffee and ELK] %clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+    file: "[Coffee and ELK] %clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+  file:
+    name: log/coffee-and-elk.log
   
 spring:
   main:
     banner-mode: OFF
+
+# Mudando a porta em que a aplicação estará disponível   
+
+server:
+ port: 8001

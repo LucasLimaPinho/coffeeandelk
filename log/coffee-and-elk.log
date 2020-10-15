@@ -1,0 +1,16 @@
+[Coffee and ELK] 18:43:22.536  WARN --- o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+[Coffee and ELK] 18:43:22.564  WARN --- ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8001 is already in use
+[Coffee and ELK] 18:43:22.586 ERROR --- o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8001 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8001 or configure this application to listen on another port.
+
