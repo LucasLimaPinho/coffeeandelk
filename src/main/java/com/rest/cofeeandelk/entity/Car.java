@@ -1,5 +1,7 @@
 package com.rest.cofeeandelk.entity;
 
+import java.time.LocalDate;
+
 // Car.java é o nosso POJO. Ele será transformado em JSON através de serialization já presente com Jackson no
 // Spring Boot framework. POJO é Plain Old Java Object e não deve possuir business logic - somente setters, getters,
 // toString override, hashcode, etc.
@@ -9,21 +11,35 @@ package com.rest.cofeeandelk.entity;
 
 public class Car {
 
+	private boolean available;
+
 	private String brand;
+
 	private String color;
+
+	private LocalDate firstReleaseDate;
+
+	private int price;
+
 	private String type;
 
-	// Gerar construtor padrão de um POJO - ALT+SHIFT+S
-	// ALT+SHIFT+S também permite realizar o "Sort Members" para melhor readability do código
-	// ALT+SHIFT+F no Eclipse permite corrigir identação
-	
-	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor vazio' - no-argumento constructor.
 	public Car() {
 
 	}
 
-
+	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor
+	// vazio' - no-argumento constructor.
 	
+	public Car(boolean available, String brand, String color, LocalDate firstReleaseDate, int price, String type) {
+		super();
+		this.available = available;
+		this.brand = brand;
+		this.color = color;
+		this.firstReleaseDate = firstReleaseDate;
+		this.price = price;
+		this.type = type;
+	}
+
 	public Car(String brand, String color, String type) {
 		super();
 		this.brand = brand;
@@ -34,7 +50,6 @@ public class Car {
 	// Também precisamos do método toString() para ser utilizado no HTTP method
 	// POST;
 
-
 	public String getBrand() {
 		return brand;
 	}
@@ -43,8 +58,29 @@ public class Car {
 		return color;
 	}
 
+	public LocalDate getFirstReleaseDate() {
+		return firstReleaseDate;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	// Gerar construtor padrão de um POJO - ALT+SHIFT+S
+	// ALT+SHIFT+S também permite realizar o "Sort Members" para melhor readability
+	// do código
+	// ALT+SHIFT+F no Eclipse permite corrigir identação
+
 	public String getType() {
 		return type;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 
 	public void setBrand(String brand) {
@@ -55,13 +91,22 @@ public class Car {
 		this.color = color;
 	}
 
+	public void setFirstReleaseDate(LocalDate firstReleaseDate) {
+		this.firstReleaseDate = firstReleaseDate;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
 
 	@Override
 	public String toString() {
-		return "Car [brand=" + brand + ", color=" + color + ", type=" + type + "]";
+		return "Car [available=" + available + ", brand=" + brand + ", color=" + color + ", firstReleaseDate="
+				+ firstReleaseDate + ", price=" + price + ", type=" + type + "]";
 	}
 
 }
