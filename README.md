@@ -13,7 +13,7 @@ https://www.udemy.com/course/practical-java-spring-boot-rest-api-with-elasticsea
 
 ####  Dependencies
 
-1. Graddle Project2
+1. Graddle Project
 2. OpenJDK15 
 3. SPring Boot 2.3
 
