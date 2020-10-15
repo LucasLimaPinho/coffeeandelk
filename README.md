@@ -32,6 +32,9 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 2. Create .jar packages to deploy in production - compile, configure metadata and build package;
 3. Plug-ins are added in build.gradle; In our case we have plug-ins for java, spring and eclipse (IDE used to develop);
 4. Automatized atualization when importing new dependencies;
+5. All Spring Boot libraries will have the same version determined in build.gradle;
+
+
 
 
 
