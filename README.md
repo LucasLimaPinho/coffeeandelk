@@ -26,7 +26,12 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 3. Spring IOC (Inversion of Control) manages dependencies;
 4. We can use @Annotations right before the method to be called (@RequestMapping, @GetMapping, @PostMapping) etc.
 5. Spring Boot DevTools monitors src/main/java, src/main/resources and src/main/tests to automatically restart applications;
+6. Spring use logback framework - src/main/resources/logback-spring.xml; Appender - where to output logs, Logger: what to log; We can send our logs to files (FileAppender) and console (ConsoleAppender);
+7. There are 5 levels of logs: log.trace(), log.debug(), log.info(), log.warn() & log.error()
 
+      **Not sent to appender**: log.trace(), log.debug() & longo & info
+      **Sent to appender**: log.warn() & log.error()
+     
 
 #### Why Gradle?
 
