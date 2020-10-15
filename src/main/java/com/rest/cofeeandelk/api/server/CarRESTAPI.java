@@ -1,8 +1,12 @@
 package com.rest.cofeeandelk.api.server;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +20,9 @@ import com.rest.cofeeandelk.service.CarService;
 @RequestMapping(value = "api/car/v1")
 @RestController
 public class CarRESTAPI {
+	
+	
+	private static final Logger LOG = LoggerFactory.getLogger(CarRESTAPI.class);
 	
 	// Criando instância de RandomCarService para a variável carService através da anotação @Autowired
 	@Autowired
@@ -32,5 +39,19 @@ public class CarRESTAPI {
 		
 		return carService.generateCar();
 	}
+	
+	// Para o método POST, iremos receber um JSON como request body e, no caso, retornar uma string
+	// comprovando que conseguimos fazer o processo deserialization/unmarshalling embedded no Spring Boot Framework
+	// Iremos transformar o request body em JSON em um POJO e retornar Car.toString();
+	// Precisamos também aqui da annotation @RequestBody para capturar o JSON de request.
+	
+	@PostMapping(value = "/echo", consumes = MediaType.APPLICATION_JSON_VALUE)	
+	public String echo(@RequestBody Car car) {
+		
+		LOG.info("Car is {}", car);		
+		return car.toString();
+		
+	}
+	
 
 }

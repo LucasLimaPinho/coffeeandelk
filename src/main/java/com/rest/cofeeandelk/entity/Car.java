@@ -16,7 +16,14 @@ public class Car {
 	// Gerar construtor padrão de um POJO - ALT+SHIFT+S
 	// ALT+SHIFT+S também permite realizar o "Sort Members" para melhor readability do código
 	// ALT+SHIFT+F no Eclipse permite corrigir identação
+	
+	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor vazio' - no-argumento constructor.
+	public Car() {
 
+	}
+
+
+	
 	public Car(String brand, String color, String type) {
 		super();
 		this.brand = brand;
@@ -26,6 +33,7 @@ public class Car {
 	// Gere automaticamente setters and getters com shortcut ALF+SHIFT+S
 	// Também precisamos do método toString() para ser utilizado no HTTP method
 	// POST;
+
 
 	public String getBrand() {
 		return brand;
