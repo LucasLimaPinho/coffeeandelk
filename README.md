@@ -13,8 +13,8 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 ####  Dependencies
 
 1. Graddle Project
-2. OpenJDK15 - https://openjdk.java.net/
-3. SPring Boot 2.3
+2. Oracle JDK-11.0.8
+3. Spring Boot 2.3.4
 
 
 #### Why Java Spring Boot?
