@@ -73,7 +73,8 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 8. In our example, CarElasticRepository.java will do the saving into Elasticsearch;
 9. Spring Data Elasticsearch will generate and execute proper API call to Elasticsearch;
 10. Spring Data interfaces have basic operations like save, delete, update, find all data etc. without the need to write statements and bind to variables;
-11. @Document annotation should be in the POJO that will be stored in Elasticsearch -> @Document(indexName = "<index-in-ES>")
+11. @Document annotation should be in the POJO that will be stored in Elasticsearch -> @Document(indexName = "<index-in-ES>");
+12. You can add methods to the Repository interface that can automatically run queries based on the name of the method - e.g findByBrandAndColor. You just need to make sure the method is written in the right way;
 
 Code block to generate connection with Elasticsearch.
 
