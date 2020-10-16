@@ -203,4 +203,20 @@ Code Block for HTTP Response Customization with Pagination:
 ~~~
  
  
- 4. Spring provides good mechanism to handle exceptions in the RESTAPIController with annotation @ExceptionHandler;
+ 4. Spring provides good mechanism to handle exceptions in the RESTAPIController with annotation @ExceptionHandler; Utilizing @ExceptionHandler annotation we have a method to deal with all the type of exceptions thrown in the RESTAPIController - if we provide Exception.class as parameter for the annotation, it will be literally all exceptions since Exception.class is parent of all other exceptions class;
+ 
+ Code Block - method for Exception handling:
+ 
+ ~~~java
+ 
+ @ExceptionHandler(value = IllegalArgumentException.class)
+private ResponseEntity<ErrorResponse> handleInvalidColorException(IllegalArgumentException e) {
+
+	var message = "Exception: " + e.getMessage();
+	LOG.warn(message);
+	var errorResponse = new ErrorResponse(message, LocalDateTime.now());
+	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+
+}
+
+~~~
