@@ -204,9 +204,7 @@ Code Block for HTTP Response Customization with Pagination:
  
  
  4. Spring provides good mechanism to handle exceptions in the RESTAPIController with annotation @ExceptionHandler; Utilizing @ExceptionHandler annotation we have a method to deal with all the type of exceptions thrown in the RESTAPIController - if we provide Exception.class as parameter for the annotation, it will be literally all exceptions since Exception.class is parent of all other exceptions class;
- 
- 5. Method marked with @ExceptionHandler will only handle exception thrown within its own class; 
- 
+
  
  Code Block - method for Exception handling:
  
@@ -225,3 +223,31 @@ private ResponseEntity<ErrorResponse> handleInvalidColorException(IllegalArgumen
 }
 
 ~~~
+
+ 
+ 5. Method marked with @ExceptionHandler will only handle exception thrown within its own class; Spring provides annotation @RestControllerAdvice to a class so that class become Global Exception Handler; We can create MyGlobalExceptionHandler.java to behave as our global exception handler using annotation @RestControllerAdvice; Inside of it we create the method to handle IllegalApiParamException; WIth this approach, any IllegalApiParamException will be caught and handled by MyGlobalExceptionHandler.java;
+ 
+ Code block for Global Exception Handler:
+ 
+ ~~~java
+ 
+@RestControllerAdvice
+public class MyGlobalExceptionHandler {
+
+	private static final Logger LOG = LoggerFactory.getLogger(MyGlobalExceptionHandler.class);
+
+	@ExceptionHandler(value = IllegalApiParamException.class)
+	public ResponseEntity<ErrorResponse> handleIllegalApiParamException(IllegalApiParamException e) {
+
+		var message = "Exception API Param from GlobalExceptionHandler : " + e.getMessage();
+		LOG.warn(message);
+		var errorResponse = new ErrorResponse(message, LocalDateTime.now());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+	}
+}
+
+~~~
+
+
+ 
+ 
