@@ -65,6 +65,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 5. By default, Elasticsearch will map java date as Elasticsearch long millisecond;
 6. Using @Field, @Repository annotations for Elasticseach SDK in Java;
 7. ElasticsearchRepository should be extended by a class;
+8. In our example, CarElasticRepository.java will do the saving into Elasticsearch;
 
 
 
