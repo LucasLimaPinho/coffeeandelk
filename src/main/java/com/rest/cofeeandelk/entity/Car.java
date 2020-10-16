@@ -25,6 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 // Iremos utilizar o POJO Car.java como data para o ElasticSearch. Para isto, essa classe deve ter a anotação 
 // @Document
+// indexName é o nome do index no Elasticsearch.
 
 @Document(indexName = "coffee-and-elk")
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
@@ -50,7 +51,7 @@ public class Car {
 	// Esse é o cuidado que precisamos ter quando fazer o mapping de date fields para o ElasticSearch.
 	
 	@Field(type = FieldType.Date, format = DateFormat.date)
-	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Jakarta")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate firstReleaseDate;
 
 	@Id

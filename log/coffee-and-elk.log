@@ -905,3 +905,278 @@ java.net.SocketTimeoutException: Connect timed out
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at java.base/java.lang.Thread.run(Thread.java:832)
 
+[Coffee and ELK] 02:03:18.596  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 02:03:18.598  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 02:03:18.598  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 02:03:18.598  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 02:03:18.605  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 02:03:18.606  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 02:03:18.606  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 02:03:18.606  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 02:03:23.087  WARN --- .d.e.r.s.AbstractElasticsearchRepository : Cannot create index: Connection refused: no further information; nested exception is java.lang.RuntimeException: Connection refused: no further information
+[Coffee and ELK] 02:03:26.744 ERROR --- o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.dao.DataAccessResourceFailureException: Connection refused: no further information; nested exception is java.lang.RuntimeException: Connection refused: no further information
+	at org.springframework.data.elasticsearch.core.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:76)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.translateException(ElasticsearchRestTemplate.java:378)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.execute(ElasticsearchRestTemplate.java:361)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.doBulkOperation(ElasticsearchRestTemplate.java:242)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.bulkIndex(ElasticsearchRestTemplate.java:195)
+	at org.springframework.data.elasticsearch.core.DocumentOperations.bulkIndex(DocumentOperations.java:152)
+	at org.springframework.data.elasticsearch.core.AbstractElasticsearchTemplate.save(AbstractElasticsearchTemplate.java:175)
+	at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.saveAll(AbstractElasticsearchRepository.java:211)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.data.repository.core.support.ImplementationInvocationMetadata.invoke(ImplementationInvocationMetadata.java:72)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:382)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:205)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:549)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:155)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy83.saveAll(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy83.saveAll(Unknown Source)
+	at com.rest.cofeeandelk.common.CarElasticDatasource.populateData(CarElasticDatasource.java:45)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:305)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:190)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:153)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:404)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:361)
+	at org.springframework.boot.context.event.EventPublishingRunListener.running(EventPublishingRunListener.java:108)
+	at org.springframework.boot.SpringApplicationRunListeners.running(SpringApplicationRunListeners.java:77)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.rest.cofeeandelk.CofeeandelkApplication.main(CofeeandelkApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.RuntimeException: Connection refused: no further information
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.translateException(ElasticsearchRestTemplate.java:376)
+	... 59 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:823)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:248)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:235)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1514)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:1484)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:1454)
+	at org.elasticsearch.client.RestHighLevelClient.bulk(RestHighLevelClient.java:497)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.lambda$doBulkOperation$8(ElasticsearchRestTemplate.java:242)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.execute(ElasticsearchRestTemplate.java:359)
+	... 58 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:589)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:839)
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvent(DefaultConnectingIOReactor.java:174)
+	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:148)
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351)
+	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221)
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+[Coffee and ELK] 02:03:27.766  WARN --- i.m.c.instrument.push.PushMeterRegistry  : Unexpected exception thrown while publishing metrics for ElasticMeterRegistry
+
+java.lang.RuntimeException: java.net.SocketTimeoutException: Connect timed out
+	at io.micrometer.elastic.ElasticMeterRegistry.determineMajorVersionIfNeeded(ElasticMeterRegistry.java:257)
+	at io.micrometer.elastic.ElasticMeterRegistry.publish(ElasticMeterRegistry.java:199)
+	at io.micrometer.core.instrument.push.PushMeterRegistry.publishSafely(PushMeterRegistry.java:52)
+	at io.micrometer.core.instrument.push.PushMeterRegistry.close(PushMeterRegistry.java:89)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:339)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:273)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:579)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:551)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1092)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:512)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1085)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1061)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1030)
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.doClose(ReactiveWebServerApplicationContext.java:142)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:979)
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:814)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:333)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.rest.cofeeandelk.CofeeandelkApplication.main(CofeeandelkApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:546)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.Socket.connect(Socket.java:648)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1261)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1194)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1082)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1016)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1600)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1528)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:527)
+	at io.micrometer.core.ipc.http.HttpUrlConnectionSender.send(HttpUrlConnectionSender.java:102)
+	at io.micrometer.core.ipc.http.HttpSender$Request$Builder.send(HttpSender.java:284)
+	at io.micrometer.elastic.ElasticMeterRegistry.determineMajorVersionIfNeeded(ElasticMeterRegistry.java:253)
+	... 28 common frames omitted
+
+[Coffee and ELK] 10:20:03.927  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:03.929  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:03.929  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:03.930  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:03.937  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:03.937  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:03.937  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:03.938  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:12.803 ERROR --- o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.dao.DataAccessResourceFailureException: 5.000 milliseconds timeout on connection http-outgoing-0 [ACTIVE]; nested exception is java.lang.RuntimeException: 5.000 milliseconds timeout on connection http-outgoing-0 [ACTIVE]
+	at org.springframework.data.elasticsearch.core.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:76)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.translateException(ElasticsearchRestTemplate.java:378)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.execute(ElasticsearchRestTemplate.java:361)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.doBulkOperation(ElasticsearchRestTemplate.java:242)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.bulkIndex(ElasticsearchRestTemplate.java:195)
+	at org.springframework.data.elasticsearch.core.DocumentOperations.bulkIndex(DocumentOperations.java:152)
+	at org.springframework.data.elasticsearch.core.AbstractElasticsearchTemplate.save(AbstractElasticsearchTemplate.java:175)
+	at org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository.saveAll(AbstractElasticsearchRepository.java:211)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.data.repository.core.support.ImplementationInvocationMetadata.invoke(ImplementationInvocationMetadata.java:72)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:382)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:205)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:549)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:155)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy84.saveAll(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy84.saveAll(Unknown Source)
+	at com.rest.cofeeandelk.common.CarElasticDatasource.populateData(CarElasticDatasource.java:45)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:305)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:190)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:153)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:404)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:361)
+	at org.springframework.boot.context.event.EventPublishingRunListener.running(EventPublishingRunListener.java:108)
+	at org.springframework.boot.SpringApplicationRunListeners.running(SpringApplicationRunListeners.java:77)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.rest.cofeeandelk.CofeeandelkApplication.main(CofeeandelkApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.RuntimeException: 5.000 milliseconds timeout on connection http-outgoing-0 [ACTIVE]
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.translateException(ElasticsearchRestTemplate.java:376)
+	... 59 common frames omitted
+Caused by: java.net.SocketTimeoutException: 5.000 milliseconds timeout on connection http-outgoing-0 [ACTIVE]
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:808)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:248)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:235)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1514)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:1484)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:1454)
+	at org.elasticsearch.client.RestHighLevelClient.bulk(RestHighLevelClient.java:497)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.lambda$doBulkOperation$8(ElasticsearchRestTemplate.java:242)
+	at org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate.execute(ElasticsearchRestTemplate.java:359)
+	... 58 common frames omitted
+Caused by: java.net.SocketTimeoutException: 5.000 milliseconds timeout on connection http-outgoing-0 [ACTIVE]
+	at org.apache.http.nio.protocol.HttpAsyncRequestExecutor.timeout(HttpAsyncRequestExecutor.java:387)
+	at org.apache.http.impl.nio.client.InternalIODispatch.onTimeout(InternalIODispatch.java:92)
+	at org.apache.http.impl.nio.client.InternalIODispatch.onTimeout(InternalIODispatch.java:39)
+	at org.apache.http.impl.nio.reactor.AbstractIODispatch.timeout(AbstractIODispatch.java:175)
+	at org.apache.http.impl.nio.reactor.BaseIOReactor.sessionTimedOut(BaseIOReactor.java:261)
+	at org.apache.http.impl.nio.reactor.AbstractIOReactor.timeoutCheck(AbstractIOReactor.java:502)
+	at org.apache.http.impl.nio.reactor.BaseIOReactor.validate(BaseIOReactor.java:211)
+	at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:280)
+	at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:104)
+	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:591)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+[Coffee and ELK] 10:20:46.939  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:46.942  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:46.942  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:46.942  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:46.950  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:46.950  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:46.951  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 10:20:46.951  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 11:06:06.696  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 11:06:06.698  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 11:06:06.698  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 11:06:06.699  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 11:06:06.706  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 11:06:06.707  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 11:06:06.707  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 11:06:06.707  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 12:38:41.223  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 12:38:41.226  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 12:38:41.226  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 12:38:41.226  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 12:38:41.234  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 12:38:41.234  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 12:38:41.234  WARN --- o.s.data.convert.CustomConversions       : Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[Coffee and ELK] 12:38:41.234  WARN --- o.s.data.convert.CustomConversions       : Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.

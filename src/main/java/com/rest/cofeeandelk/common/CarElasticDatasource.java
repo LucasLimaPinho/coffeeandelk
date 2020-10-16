@@ -15,6 +15,9 @@ import com.rest.cofeeandelk.entity.Car;
 import com.rest.cofeeandelk.repository.CarElasticRepository;
 import com.rest.cofeeandelk.service.CarService;
 
+
+// Dummy data source para inserir 10.000 carros no Elasticsearch rodando em localhost:9200
+
 @Component
 public class CarElasticDatasource {
 
@@ -31,10 +34,17 @@ public class CarElasticDatasource {
 	@Qualifier("webClientElasticsearch")
 	private WebClient webClient;
 
+	// populateData() will run on application startup. Para fazer isso, usamos a anotação para fazer o listen
+	// de ApplicationReadyEvent.class
+	
 	@EventListener(ApplicationReadyEvent.class)
 	public void populateData() {
-		//var response = webClient.delete().uri("/practical-java").retrieve().bodyToMono(String.class).block();
-		//LOG.info("End delete with response {}", response);
+		
+		// Iniciar deletando qualquer carro existente no Elasticsearch através de Spring Web Client.
+		// Desta forma, sempre que iniciar a aplicação teremos "fresh" 10.000 cars.
+		
+		var response = webClient.delete().uri("/coffee-and-elk").retrieve().bodyToMono(String.class).block();
+		LOG.info("End delete with response {}", response);
 
 		var cars = new ArrayList<Car>();
 
@@ -42,6 +52,8 @@ public class CarElasticDatasource {
 			cars.add(carService.generateCar());
 		}
 
+		// A interface carRepository salva a lista de random cars gerado por RandomCarService no Elasticsearch.
+		
 		carRepository.saveAll(cars);
 
 		LOG.info("Saved {} cars", carRepository.count());

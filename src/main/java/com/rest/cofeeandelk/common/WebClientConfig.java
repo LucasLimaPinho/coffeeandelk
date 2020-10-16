@@ -9,6 +9,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
+	// Método que retorna Spring Web Client.
+	
+	
 	@Bean(name = "webClientElasticsearch")
 	public WebClient webClientElasticsearch() {
 		return WebClient.builder().baseUrl("http://localhost:9200")

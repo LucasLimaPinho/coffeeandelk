@@ -6,6 +6,11 @@ import org.springframework.data.elasticsearch.client.ClientConfiguration;
 import org.springframework.data.elasticsearch.client.RestClients;
 import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfiguration;
 
+// ***************** Classe para criar conexão com ElasticSearch. **************************************
+
+// Precisa herdar AbstractElasticsearchConfiguration (base class for ElasticsearchConfiguration)
+// Precisamos anotar como @Configuration class.
+
 @Configuration
 public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
 
