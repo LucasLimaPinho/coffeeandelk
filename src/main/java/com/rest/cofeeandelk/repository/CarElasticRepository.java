@@ -1,5 +1,6 @@
 package com.rest.cofeeandelk.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
@@ -19,5 +20,6 @@ public interface CarElasticRepository extends ElasticsearchRepository<Car, Strin
 	
 	public List<Car> findByBrandAndColor(String brand, String color);
 	
+	public List<Car> findByFirstReleaseDateAfter(LocalDate firstReleaseDate);
 
 }
