@@ -113,7 +113,7 @@ Elasticsearch 7.6.2 Node 03: http://localhost:9203
 
 Kibana 7.6.2: http://localhost:5601
 
-In Kibana Console Tool, you can check the allocation of documents in primary and replica shards using this HTTP requests.
+In [Kibana Console Tool](http://localhost:5601/app/kibana#/dev_tools/console), you can check the allocation of documents in primary and replica shards using this HTTP requests.
 
 ~~~http
 
