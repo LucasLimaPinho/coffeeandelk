@@ -9,7 +9,7 @@ spring:
   main:
     banner-mode: OFF
   jackson:
-    property-naming-strategy: SNAKE_CASE
+    property-naming-strategy: SNAKE_CASE  
 
 # Mudando a porta em que a aplicação estará disponível   
 
