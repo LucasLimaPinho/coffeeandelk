@@ -113,7 +113,7 @@ Kibana 7.6.2: http://localhost:5601
 
 ~~~
 
-GET /_cluster/health
+<r>GET</r> /_cluster/health
 
 GET /_cat/shards?v
 
