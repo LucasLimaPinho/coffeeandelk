@@ -224,10 +224,18 @@ private ResponseEntity<ErrorResponse> handleInvalidColorException(IllegalArgumen
 
 ~~~
 
+
+
  
  5. Method marked with @ExceptionHandler will only handle exception thrown within its own class; Spring provides annotation @RestControllerAdvice to a class so that class become Global Exception Handler; We can create MyGlobalExceptionHandler.java to behave as our global exception handler using annotation @RestControllerAdvice; Inside of it we create the method to handle IllegalApiParamException; WIth this approach, any IllegalApiParamException will be caught and handled by MyGlobalExceptionHandler.java;
  
+ 
+ 
+ 
+ 
  Code block for Global Exception Handler:
+ 
+ 
  
  ~~~java
  
