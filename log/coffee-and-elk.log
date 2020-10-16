@@ -148,3 +148,19 @@ com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct 
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
 
+[Coffee and ELK] 22:19:45.389  WARN --- o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+[Coffee and ELK] 22:19:45.417  WARN --- ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8001 is already in use
+[Coffee and ELK] 22:19:45.443 ERROR --- o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8001 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8001 or configure this application to listen on another port.
+

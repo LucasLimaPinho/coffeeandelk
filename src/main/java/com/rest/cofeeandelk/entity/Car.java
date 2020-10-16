@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 public class Car {
 
 	private List<String> additionalFeatures;
-
+	
 	private boolean available;
 
 	private String brand;
@@ -31,15 +31,17 @@ public class Car {
 	private LocalDate firstReleaseDate;
 
 	private int price;
-	
+
+	private String secretFeature;
+
 	private List<Tire> tires;
-	
+
 	private String type;
 
 	public Car() {
 
 	}
-
+	
 	public Car(boolean available, String brand, String color, LocalDate firstReleaseDate, int price, String type) {
 		super();
 		this.available = available;
@@ -49,7 +51,7 @@ public class Car {
 		this.price = price;
 		this.type = type;
 	}
-
+	
 	public Car(List<String> additionalFeatures, boolean available, String brand, String color,
 			LocalDate firstReleaseDate, int price, String type, Engine engine, List<Tire> tires) {
 		super();
@@ -62,6 +64,21 @@ public class Car {
 		this.type = type;
 		this.engine = engine;
 		this.tires = tires;
+	}
+
+	public Car(List<String> additionalFeatures, String secretFeature, boolean available, String brand, String color,
+			Engine engine, LocalDate firstReleaseDate, int price, List<Tire> tires, String type) {
+		super();
+		this.additionalFeatures = additionalFeatures;
+		this.secretFeature = secretFeature;
+		this.available = available;
+		this.brand = brand;
+		this.color = color;
+		this.engine = engine;
+		this.firstReleaseDate = firstReleaseDate;
+		this.price = price;
+		this.tires = tires;
+		this.type = type;
 	}
 
 	public Car(String brand, String color, String type) {
@@ -90,15 +107,19 @@ public class Car {
 		return engine;
 	}
 
-	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor
-	// vazio' - no-argumento constructor.
-
 	public LocalDate getFirstReleaseDate() {
 		return firstReleaseDate;
 	}
 
 	public int getPrice() {
 		return price;
+	}
+
+	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor
+	// vazio' - no-argumento constructor.
+
+	public String getSecretFeature() {
+		return secretFeature;
 	}
 
 	public List<Tire> getTires() {
@@ -117,14 +138,14 @@ public class Car {
 		this.additionalFeatures = additionalFeatures;
 	}
 
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
 	// Gerar construtor padrão de um POJO - ALT+SHIFT+S
 	// ALT+SHIFT+S também permite realizar o "Sort Members" para melhor readability
 	// do código
 	// ALT+SHIFT+F no Eclipse permite corrigir identação
-
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
 
 	public void setBrand(String brand) {
 		this.brand = brand;
@@ -146,6 +167,10 @@ public class Car {
 		this.price = price;
 	}
 
+	public void setSecretFeature(String secretFeature) {
+		this.secretFeature = secretFeature;
+	}
+
 	public void setTires(List<Tire> tires) {
 		this.tires = tires;
 	}
@@ -157,8 +182,8 @@ public class Car {
 	@Override
 	public String toString() {
 		return "Car [additionalFeatures=" + additionalFeatures + ", available=" + available + ", brand=" + brand
-				+ ", color=" + color + ", firstReleaseDate=" + firstReleaseDate + ", price=" + price + ", type=" + type
-				+ ", engine=" + engine + ", tires=" + tires + "]";
+				+ ", color=" + color + ", engine=" + engine + ", firstReleaseDate=" + firstReleaseDate + ", price="
+				+ price + ", secretFeature=" + secretFeature + ", tires=" + tires + ", type=" + type + "]";
 	}
 
 }

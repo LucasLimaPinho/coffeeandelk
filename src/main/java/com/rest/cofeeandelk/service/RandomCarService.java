@@ -43,6 +43,8 @@ public class RandomCarService implements CarService {
 			tires.add(tire);
 
 		}
+		
+		var secretFeature = ThreadLocalRandom.current().nextBoolean() ? "Can Fly" : null;
 		var result = new Car(brand, color, type);
 		// Random count between zero and list size
 		int randomCount = ThreadLocalRandom.current().nextInt(ADDITIONAL_FEATURES.size());
@@ -64,6 +66,7 @@ public class RandomCarService implements CarService {
 		result.setAdditionalFeatures(additionalFeatures);
 		result.setEngine(engine);
 		result.setTires(tires);
+		result.setSecretFeature(secretFeature);
 
 		return result;
 	}
