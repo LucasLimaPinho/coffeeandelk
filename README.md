@@ -63,6 +63,9 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 3. The class created as "ElasticsearchConfiguration" needs to have a @Configuration annotation from Spring Boot Framework; The class needs to extend "AbstractElasticSearchConfiguration";
 4. The most basic configuration is Elasticsearch Host and Port;
 5. By default, Elasticsearch will map java date as Elasticsearch long millisecond;
+6. Using @Field, @Repository annotations for Elasticseach SDK in Java;
+7. ElasticsearchRepository should be extended by a class;
+
 
 
 
