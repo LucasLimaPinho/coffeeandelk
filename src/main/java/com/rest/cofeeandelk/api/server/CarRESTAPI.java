@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.cofeeandelk.entity.Car;
@@ -117,9 +118,20 @@ public class CarRESTAPI {
 		
 	}
 	
+	// Query Lista de Carros do ElasticSearch por PATH PARAMETERS na URL;
+	
 	@GetMapping(value = "/cars/{brand}/{color}")
 	public List<Car> findCarByPath(@PathVariable("brand") String brand, @PathVariable("color") String color){
 		
 		return carElasticRepository.findByBrandAndColor(brand, color);
+	}
+	
+	// Query Lista de Carros do ElasticSearch por QUERY PARAMETERS na URL;
+	
+	@GetMapping(value = "/cars")
+	public List<Car> findCarByParams(@RequestParam String brand, @RequestParam String color){
+		
+		return carElasticRepository.findByBrandAndColor(brand, color);
+		
 	}
 }

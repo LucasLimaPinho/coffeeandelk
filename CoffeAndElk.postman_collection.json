@@ -284,6 +284,38 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Spring API - Query ES with query parameters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/car/v1/cars?brand=Toyota&color=Red",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"car",
+						"v1",
+						"cars"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "Toyota"
+						},
+						{
+							"key": "color",
+							"value": "Red"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -310,7 +342,7 @@
 	],
 	"variable": [
 		{
-			"id": "e5e46064-1c5d-4072-b04f-b9741bd69581",
+			"id": "d7b6ee69-61f6-4d58-a96f-f855daf5d74c",
 			"key": "id",
 			"value": "Nd0QMnUBttvs7B7VM-1-"
 		}
