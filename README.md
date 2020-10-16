@@ -36,6 +36,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 9. To convert JSON to POJO, the class must be public; The class must have no-arguments constructor that are automatically created by Java with ALT+SHIFT+S; You can't define any other constructor for the serialization with Jackson to work;
 10. **O POJO sempre deve ter um no-argument constructor para que possa ser realizado o unmarshalling no método HTTP POST**
 11. @JsonInclude may stablish someconditions for the field to be exposed in the response API; **Show attribute conditionally**. Example: show attribute only if is not empty or not null.      
+12. @JsonIgnore hide attribute in JSON, non conditionally;
 
 #### Why Gradle?
 
