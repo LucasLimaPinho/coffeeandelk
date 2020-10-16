@@ -57,7 +57,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 3. The executable jar will be in <path>/build/libs
 4. Spring Boot Configurations for deployment: application.properties or application.yml (depends on your preference for readability). By default, runs a Apache Tomcat server   on port 8080. We can change the port in application.yml with server.port:8001, per example; See more: https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
 
-#### Elasticsearch & Spring Data
+#### Spring Data Elasticsearch
 
 1. Spring provides automatic handler for pagination;
 2. Add 'org.springframework.boot:spring-boot-starter-data-elasticsearch' on build.gradle; Refresh Gradle Project;
@@ -67,7 +67,38 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 6. Using @Field, @Repository annotations for Elasticseach SDK in Java;
 7. ElasticsearchRepository should be extended by a class;
 8. In our example, CarElasticRepository.java will do the saving into Elasticsearch;
+9. Spring Data Elasticsearch will generate and execute proper API call to Elasticsearch;
+10. Spring Data interfaces have basic operations like save, delete, update, find all data etc. without the need to write statements and bind to variables;
+11. @Document annotation should be in the POJO that will be stored in Elasticsearch -> @Document(indexName = "<index-in-ES>")
 
+Code block to generate connection with Elasticsearch.
+
+~~~
+
+@Configuration
+public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
+
+	@Override
+	public RestHighLevelClient elasticsearchClient() {
+		final var clientConfiguration = ClientConfiguration.builder().connectedTo("localhost:9200").build();
+		return RestClients.create(clientConfiguration).rest();
+	}	
+
+}
+
+~~~
+
+Interface to perform CRUD operations in Elasticsearch.
+
+~~~
+
+@Repository
+public interface CarElasticRepository extends ElasticsearchRepository<<POJO>, <Type of the identifier of the document, usually String>> {	
+	
+
+}
+
+~~~
 
 
 
