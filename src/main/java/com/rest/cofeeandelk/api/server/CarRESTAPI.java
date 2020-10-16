@@ -14,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -31,9 +32,9 @@ import com.rest.cofeeandelk.entity.Car;
 import com.rest.cofeeandelk.repository.CarElasticRepository;
 import com.rest.cofeeandelk.service.CarService;
 
-// Para gerar um carro aleatÛrio, precisamos de um @Service que ir· usar a annotation @Autowired.
-// Desta forma, Spring ir· realizar a dependency injection.
-// Como j· setamos RandomCarService.java com a anotaÁ„o @Service, Spring ir· INJETAR uma INST¬NCIA de RandomCarService a esta vari·vel (carService).
+// Para gerar um carro aleat√≥rio, precisamos de um @Service que ir√° usar a annotation @Autowired.
+// Desta forma, Spring ir√° realizar a dependency injection.
+// Como j√° setamos RandomCarService.java com a anota√ß√£o @Service, Spring ir√° INJETAR uma INST√ÇNCIA de RandomCarService a esta vari√°vel (carService).
 
 @RequestMapping(value = "api/car/v1")
 @RestController
@@ -44,16 +45,16 @@ public class CarRESTAPI {
 	@Autowired
 	private CarElasticRepository carElasticRepository;
 
-	// Criando inst‚ncia de RandomCarService para a vari·vel carService atravÈs da
-	// anotaÁ„o @Autowired
+	// Criando inst√¢ncia de RandomCarService para a vari√°vel carService atrav√©s da
+	// anota√ß√£o @Autowired
 	@Autowired
 	private CarService carService;
 
-	// O mÈtodo para retornar a response da request deve estar no controller - nesta
+	// O m√©todo para retornar a response da request deve estar no controller - nesta
 	// classe, no caso.
-	// POJO -> INTERFACE -> IMPLEMENTA«√O DA INTERFACE -> CONTROLLER
+	// POJO -> INTERFACE -> IMPLEMENTA√á√ÉO DA INTERFACE -> CONTROLLER
 
-	// O mÈtodo da resposta deve retornar o POJO. Uma inst‚ncia de RandomCarService
+	// O m√©todo da resposta deve retornar o POJO. Uma inst√¢ncia de RandomCarService
 	// retirada de carService.
 
 	@GetMapping(value = "/random", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -62,13 +63,13 @@ public class CarRESTAPI {
 		return carService.generateCar();
 	}
 
-	// Para o mÈtodo POST, iremos receber um JSON como request body e, no caso,
+	// Para o m√©todo POST, iremos receber um JSON como request body e, no caso,
 	// retornar uma string
 	// comprovando que conseguimos fazer o processo deserialization/unmarshalling
 	// embedded no Spring Boot Framework
 	// Iremos transformar o request body em JSON em um POJO e retornar
 	// Car.toString();
-	// Precisamos tambÈm aqui da annotation @RequestBody para capturar o JSON de
+	// Precisamos tamb√©m aqui da annotation @RequestBody para capturar o JSON de
 	// request.
 
 	@PostMapping(value = "/echo", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -139,10 +140,14 @@ public class CarRESTAPI {
 			@RequestParam(defaultValue = "10") int size) {
 
 		// Vamos usar aqui StringUtil para checar se o campo {color} provided pelo user
-		// contÈm numÈrico
+		// cont√©m num√©rico
 		// Caso sim, devemos retornar a classe ErrorResponse.class com messagem de erro
 		// e timestamp do erro. Quando o erro ocorre pelo lado do cliente, devemos responder ResponseEntity
 		// O HTTP status precisa ser 400 - BadRequest
+		
+		var headers = new HttpHeaders();
+		headers.add(HttpHeaders.SERVER, "Spring");
+		headers.add("X-Custom-Header", "Custom Response Header");
 		
 		if (StringUtils.isNumeric(color)) {
 			
@@ -155,7 +160,7 @@ public class CarRESTAPI {
 			// Http Header: null
 			// HttpStatusCode: 400 - Bad Request
 			
-			return new ResponseEntity<Object>(errorResponse, null, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Object>(errorResponse, headers, HttpStatus.BAD_REQUEST);
 		}		
 
 		var pageable = PageRequest.of(page, size, Sort.by(Direction.DESC, "price"));
@@ -165,7 +170,7 @@ public class CarRESTAPI {
 		
 		var cars = carElasticRepository.findByBrandAndColor(brand, color, pageable).getContent();
 		
-		return ResponseEntity.ok(cars);
+		return ResponseEntity.ok().headers(headers).body(cars);
 	}
 
 	// Query Lista de Carros do ElasticSearch por QUERY PARAMETERS na URL;
