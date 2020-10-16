@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -17,6 +19,9 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Car {
 
+	// JsonInclude estabelece condições para se o field será exposto ou não da response da request da API.
+	
+	@JsonInclude(value = Include.NON_EMPTY)
 	private List<String> additionalFeatures;
 	
 	private boolean available;
@@ -32,6 +37,7 @@ public class Car {
 
 	private int price;
 
+	@JsonInclude(value = Include.NON_EMPTY)
 	private String secretFeature;
 
 	private List<Tire> tires;
