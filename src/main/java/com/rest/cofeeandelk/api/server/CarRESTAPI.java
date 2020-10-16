@@ -18,6 +18,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,16 +46,19 @@ public class CarRESTAPI {
 	@Autowired
 	private CarElasticRepository carElasticRepository;
 
-	// Criando instÃ¢ncia de RandomCarService para a variÃ¡vel carService atravÃ©s da
+	// Criando instÃ¢ncia de RandomCarService para a variÃ¡vel carService atravÃ©s
+	// da
 	// anotaÃ§Ã£o @Autowired
 	@Autowired
 	private CarService carService;
 
-	// O mÃ©todo para retornar a response da request deve estar no controller - nesta
+	// O mÃ©todo para retornar a response da request deve estar no controller -
+	// nesta
 	// classe, no caso.
 	// POJO -> INTERFACE -> IMPLEMENTAÃ‡ÃƒO DA INTERFACE -> CONTROLLER
 
-	// O mÃ©todo da resposta deve retornar o POJO. Uma instÃ¢ncia de RandomCarService
+	// O mÃ©todo da resposta deve retornar o POJO. Uma instÃ¢ncia de
+	// RandomCarService
 	// retirada de carService.
 
 	@GetMapping(value = "/random", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -134,51 +138,68 @@ public class CarRESTAPI {
 
 	// Query Lista de Carros do ElasticSearch por PATH PARAMETERS na URL;
 
+	// ************** Utilizando como exemplo HTTP Response Customization
+	// *********************
+
 	@GetMapping(value = "/cars/{brand}/{color}")
 	public ResponseEntity<Object> findCarByPath(@PathVariable("brand") String brand,
 			@PathVariable("color") String color, @RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "10") int size) {
 
 		// Vamos usar aqui StringUtil para checar se o campo {color} provided pelo user
-		// contÃ©m numÃ©rico
+		// contém numérico
 		// Caso sim, devemos retornar a classe ErrorResponse.class com messagem de erro
-		// e timestamp do erro. Quando o erro ocorre pelo lado do cliente, devemos responder ResponseEntity
+		// e timestamp do erro. Quando o erro ocorre pelo lado do cliente, devemos
+		// responder ResponseEntity
 		// O HTTP status precisa ser 400 - BadRequest
-		
+
 		var headers = new HttpHeaders();
 		headers.add(HttpHeaders.SERVER, "Spring");
 		headers.add("X-Custom-Header", "Custom Response Header");
-		
+
 		if (StringUtils.isNumeric(color)) {
-			
+
 			var errorResponse = new ErrorResponse("Invalid color : " + color, LocalDateTime.now());
-			
-			// ResponseEntity tem muitos construtores. Iremos basicamente utilizar o construtor com os argumentos
+
+			// ResponseEntity tem muitos construtores. Iremos basicamente utilizar o
+			// construtor com os argumentos
 			// body, http header e http status code.
-			
+
 			// Body: objeto da classe ErrorResponse.class
 			// Http Header: null
 			// HttpStatusCode: 400 - Bad Request
-			
+
 			return new ResponseEntity<Object>(errorResponse, headers, HttpStatus.BAD_REQUEST);
-		}		
+		}
 
 		var pageable = PageRequest.of(page, size, Sort.by(Direction.DESC, "price"));
-		
+
 		// Aqui precisamos retornar List<Car> com HTTP_STATUS_CODE = 200 OK
 		// Vamos usar um builder da classe ResponseEntity
-		
+
 		var cars = carElasticRepository.findByBrandAndColor(brand, color, pageable).getContent();
-		
+
 		return ResponseEntity.ok().headers(headers).body(cars);
 	}
 
 	// Query Lista de Carros do ElasticSearch por QUERY PARAMETERS na URL;
 
+	// ************** Utilizando como exemplo HTTP Exception Handling
+	// *********************
+
 	@GetMapping(value = "/cars")
 	public List<Car> findCarByParams(@RequestParam String brand, @RequestParam String color,
 			@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
 
+		// Utilizando StringUtils, checar se o query parameter {color} possui numérico.
+		// Caso possua, devemos fazer o handling da exceção.
+		// Iremos criar um método no próprio controller para lidar com a exceção.
+
+		if (StringUtils.isNumeric(color)) {
+
+			throw new IllegalArgumentException("Invalid query parameter for color :" + color);
+
+		}
 		var pageable = PageRequest.of(page, size, Sort.by(Direction.DESC, "price"));
 		return carElasticRepository.findByBrandAndColor(brand, color, pageable).getContent();
 
@@ -189,6 +210,30 @@ public class CarRESTAPI {
 			@RequestParam(name = "first_release_date") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate firstReleaseDate) {
 
 		return carElasticRepository.findByFirstReleaseDateAfter(firstReleaseDate);
+
+	}
+
+	// Método para lidar com exceções deve retornar ResponseEntity que pode ter o
+	// objeto construído com o
+	// o construtor (body, http header, http status code) ou através do builder com
+	// nested methods
+	// @ExceptionHandler recebe parâmetros que pode ser simplesmente Exception.class
+	// ou um array de tipos de Exception
+	// Desta forma, @ExceptionHandler irá lidar com qualquer exceção lançada por
+	// CarRESTAPI.java com os tipos de
+	// Exceptions especificadas nos parâmetros;
+
+	// Neste exemplo, a anotação @ExceptionHandler irá lidar somente com a
+	// IllegalArgumentException.class
+
+	@ExceptionHandler(value = IllegalArgumentException.class)
+	private ResponseEntity<ErrorResponse> handleInvalidColorException(IllegalArgumentException e) {
+
+		var message = "Exception: " + e.getMessage();
+		LOG.warn(message);
+		var errorResponse = new ErrorResponse(message, LocalDateTime.now());
+
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
 
 	}
 }
