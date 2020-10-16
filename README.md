@@ -133,3 +133,16 @@ GET /_cat/indices?v
 ~~~
 
 You have other other queries in [Postman Collection](https://web.postman.co/collections/13038513-c9864601-f6fc-4c69-8ce1-db84ae70f9e0?version=latest&workspace=31ccf69f-8901-4b23-83f1-0114705f100e) and you can [import the json file](https://github.com/LucasLimaPinho/coffeeandelk/blob/master/CoffeAndElk.postman_collection.json) to your environment.
+
+You can also query Elasticsearch with **path parameters**. Here is a code block using Spring Boot framework.
+
+~~~java
+
+	@GetMapping(value = "/cars/{brand}/{color}")
+	public List<Car> findCarByPath(@PathVariable("brand") String brand, @PathVariable("color") String color){
+		
+		return carElasticRepository.findByBrandAndColor(brand, color);
+	}
+}
+
+~~~
