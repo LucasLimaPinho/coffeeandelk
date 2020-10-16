@@ -3,6 +3,10 @@ package com.rest.cofeeandelk.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 // Car.java é o nosso POJO. Ele será transformado em JSON através de serialization já presente com Jackson no
 // Spring Boot framework. POJO é Plain Old Java Object e não deve possuir business logic - somente setters, getters,
 // toString override, hashcode, etc.
@@ -10,6 +14,7 @@ import java.util.List;
 // Para construir nossa JSON Response, iremos no basear no modelo do POJO Car.java
 // Para ser serializado/marshealizado - a classe deve ser pública
 
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Car {
 
 	private List<String> additionalFeatures;
@@ -22,6 +27,7 @@ public class Car {
 
 	private Engine engine;
 
+	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "Asia/Jakarta")
 	private LocalDate firstReleaseDate;
 
 	private int price;
