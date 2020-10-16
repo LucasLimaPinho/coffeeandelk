@@ -25,8 +25,8 @@ public class DefaultRestApi {
 	}
 	
 	@GetMapping(value = "/header-one")
-	public String headerByAnnotation(@RequestHeader(name="User-Agent") String headerUserAgent,
-			@RequestHeader(name="coffee-and-elk") String headerCoffeeAndELK) {
+	public String headerByAnnotation(@RequestHeader(name="User-Agent", required = false) String headerUserAgent,
+			@RequestHeader(name="coffee-and-elk", required = false) String headerCoffeeAndELK) {
 		
 		return "User-agent: " + headerUserAgent + ", CoffeAndELK :" + headerCoffeeAndELK;
 		
