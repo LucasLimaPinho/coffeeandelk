@@ -138,10 +138,10 @@ You can also query Elasticsearch with **path parameters**. Here is a code block 
 
 ~~~java
 
-	@GetMapping(value = "/cars/{brand}/{color}")
+@GetMapping(value = "/cars/{brand}/{color}")
 	public List<Car> findCarByPath(@PathVariable("brand") String brand, @PathVariable("color") String color){
 		
-		return carElasticRepository.findByBrandAndColor(brand, color);
+	return carElasticRepository.findByBrandAndColor(brand, color);
 	}
 }
 
