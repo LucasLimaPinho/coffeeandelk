@@ -102,6 +102,27 @@ public interface CarElasticRepository extends ElasticsearchRepository<<POJO>, <T
 
 ~~~
 
+In Kibana Console Tool, you can check the allocation of documents in primary and replica shards using this HTTP requests.
 
+We put up 03 nodes of Elasticsearch. Remember they are running in this URLs:
+
+Elasticsearch 7.6.2 Node 01: http://localhost:9200
+Elasticsearch 7.6.2 Node 02: http://localhost:9201
+Elasticsearch 7.6.2 Node 03: http://localhost:9203
+Kibana 7.6.2: http://localhost:5601
+
+~~~
+
+GET /_cluster/health
+
+GET /_cat/shards?v
+
+GET /_cat/allocation?v
+
+GET /_cat/nodes?v
+
+GET /_cat/indices?v
+
+~~~
 
 
