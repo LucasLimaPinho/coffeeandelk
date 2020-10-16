@@ -142,6 +142,7 @@ You can also query Elasticsearch with **path parameters**. Here is a code block 
 	public List<Car> findCarByPath(@PathVariable("brand") String brand, @PathVariable("color") String color){
 		
 	return carElasticRepository.findByBrandAndColor(brand, color);
+	
 	}
 }
 
