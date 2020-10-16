@@ -1,4 +1,6 @@
-# Spring Boot REST API with Elasticsearch
+# Coffee and ELK
+
+Spring Boot REST API with Elasticsearch.
 
 #### Referencies
 
@@ -75,6 +77,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 10. Spring Data interfaces have basic operations like save, delete, update, find all data etc. without the need to write statements and bind to variables;
 11. @Document annotation should be in the POJO that will be stored in Elasticsearch -> @Document(indexName = "<index-in-ES>");
 12. You can add methods to the Repository interface that can automatically run queries based on the name of the method - e.g findByBrandAndColor. You just need to make sure the method is written in the right way; This is called as **Spring Query Creation**. Spring has many keywords to accomplish this. Click [here](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation) for more information.
+13. Query methods are methods that are declared in the repository interface and usually used to read data. We don't need to define method body, Spring Data will work without it;
 
 Code block to generate connection with Elasticsearch.
 
