@@ -316,6 +316,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Spring API - Query ES by date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/car/v1/cars/date?first_release_date=2019-10-06",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"car",
+						"v1",
+						"cars",
+						"date"
+					],
+					"query": [
+						{
+							"key": "first_release_date",
+							"value": "2019-10-06"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -342,7 +371,7 @@
 	],
 	"variable": [
 		{
-			"id": "d7b6ee69-61f6-4d58-a96f-f855daf5d74c",
+			"id": "014c20c0-439b-424f-a843-c2d216038932",
 			"key": "id",
 			"value": "Nd0QMnUBttvs7B7VM-1-"
 		}
