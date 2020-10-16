@@ -166,3 +166,10 @@ Elasticsearch can be queried with **query parameters**. Here is a code block usi
 }
 
 ~~~
+
+#### Exception Handling and Customizing HTTP Response
+
+1. ResponseEntity.class in Spring Boot framework help us provide the correct HTTP status code for the client; That includes Status Code, Headers & Body; ResponseEntity<Type of Return Class>;
+2. In our case, the ResponseEntity.Body can be of type "List<Car>" or a new class "ErrorResponse". We will use generic <Object>;
+3. ResponseEntity has a lot of constructors, but we can basically use the one with this arguments: "body", "http header" & "http status code"; In case we have a good request from the client, per example, we can return ResponseBody.ok(List<Car>);
+	
