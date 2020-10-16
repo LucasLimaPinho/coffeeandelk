@@ -1,5 +1,7 @@
 package com.rest.cofeeandelk.repository;
 
+import java.util.List;
+
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +17,7 @@ import com.rest.cofeeandelk.entity.Car;
 @Repository
 public interface CarElasticRepository extends ElasticsearchRepository<Car, String> {
 	
+	public List<Car> findByBrandAndColor(String brand, String color);
 	
 
 }

@@ -250,6 +250,40 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "SpringAPI - Find By Brand and Color With Method in Repository",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"_class\": \"com.rest.cofeeandelk.entity.Car\",\r\n        \"additionalFeatures\": [\r\n            \"GPS\",\r\n            \"alarm\",\r\n            \"sunroof\",\r\n            \"media player\"\r\n        ],\r\n        \"available\": true,\r\n        \"brand\": \"Honda\",\r\n        \"color\": \"Red\",\r\n        \"engine\": {\r\n            \"color\": \"Black\",\r\n            \"fuelType\": \"Electric\",\r\n            \"horsePower\": 119,\r\n            \"serialNumber\": \"X-COR\"\r\n        },\r\n        \"firstReleaseDate\": \"2014-09-16\",\r\n        \"price\": 90873,\r\n        \"secretFeature\": \"Can Fly\",\r\n        \"tires\": [\r\n            {\r\n                \"manufacturer\": \"Goodyear\",\r\n                \"price\": 338,\r\n                \"size\": 15\r\n            },\r\n            {\r\n                \"manufacturer\": \"Goodyear\",\r\n                \"price\": 313,\r\n                \"size\": 15\r\n            },\r\n            {\r\n                \"manufacturer\": \"Dunlop\",\r\n                \"price\": 320,\r\n                \"size\": 16\r\n            }\r\n        ],\r\n        \"type\": \"Conversible\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/car/v1/find-json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"car",
+						"v1",
+						"find-json"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -276,7 +310,7 @@
 	],
 	"variable": [
 		{
-			"id": "e369f794-680d-431f-a8bd-4bfc9d348f78",
+			"id": "e5e46064-1c5d-4072-b04f-b9741bd69581",
 			"key": "id",
 			"value": "Nd0QMnUBttvs7B7VM-1-"
 		}

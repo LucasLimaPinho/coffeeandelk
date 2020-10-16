@@ -110,6 +110,10 @@ public class CarRESTAPI {
 		return "Updated car : " + newCar.getId();
 	}
 	
-	
-
+	@GetMapping(value = "find-json", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Car> findCarByBrandAndColor(@RequestBody Car car){
+		
+		return carElasticRepository.findByBrandAndColor(car.getBrand(), car.getColor());
+		
+	}
 }
