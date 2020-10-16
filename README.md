@@ -17,6 +17,8 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 1. Gradle Project
 2. Oracle JDK-11.0.8
 3. Spring Boot 2.3.4
+4. Elasticsearch 7.6.2
+5. Kibana 7.6.2
 
 
 #### Why Java Spring Boot?
