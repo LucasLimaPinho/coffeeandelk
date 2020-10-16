@@ -8,8 +8,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -119,7 +120,7 @@ public class CarRESTAPI {
 	public List<Car> findCarByBrandAndColor(@RequestBody Car car, @RequestParam(defaultValue = "10") int page,
 			@RequestParam(defaultValue = "0") int size){
 		
-		var pageable = PageRequest.of(page, size);
+		var pageable = PageRequest.of(page, size, Sort.by(Direction.DESC,"price"));
 		
 		return carElasticRepository.findByBrandAndColor(car.getBrand(), car.getColor(), pageable).getContent();
 		
@@ -131,7 +132,7 @@ public class CarRESTAPI {
 	public List<Car> findCarByPath(@PathVariable("brand") String brand, @PathVariable("color") String color,
 			@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size){
 		
-		var pageable = PageRequest.of(page, size);
+		var pageable = PageRequest.of(page, size, Sort.by(Direction.DESC,"price"));
 		return carElasticRepository.findByBrandAndColor(brand, color, pageable).getContent();
 	}
 	
@@ -141,7 +142,7 @@ public class CarRESTAPI {
 	public List<Car> findCarByParams(@RequestParam String brand, @RequestParam String color,
 			@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size){
 		
-		var pageable = PageRequest.of(page, size);
+		var pageable = PageRequest.of(page, size, Sort.by(Direction.DESC,"price"));
 		return carElasticRepository.findByBrandAndColor(brand, color, pageable).getContent();
 		
 	}
