@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.cofeeandelk.api.response.ErrorResponse;
 import com.rest.cofeeandelk.entity.Car;
+import com.rest.cofeeandelk.exception.IllegalApiParamException;
 import com.rest.cofeeandelk.repository.CarElasticRepository;
 import com.rest.cofeeandelk.service.CarService;
 
@@ -200,6 +201,13 @@ public class CarRESTAPI {
 			throw new IllegalArgumentException("Invalid query parameter for color :" + color);
 
 		}
+
+		if (StringUtils.isNumeric(brand)) {
+
+			throw new IllegalApiParamException("Invalid query parameter for brand :" + brand);
+
+		}
+		
 		var pageable = PageRequest.of(page, size, Sort.by(Direction.DESC, "price"));
 		return carElasticRepository.findByBrandAndColor(brand, color, pageable).getContent();
 
@@ -235,5 +243,16 @@ public class CarRESTAPI {
 
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
 
+	}
+	
+	@ExceptionHandler(value = IllegalApiParamException.class)
+	public ResponseEntity<ErrorResponse> handleIllegalApiParamException(IllegalApiParamException e) {
+		
+		var message = "Exception: " + e.getMessage();
+		LOG.warn(message);
+		var errorResponse = new ErrorResponse(message, LocalDateTime.now());
+		
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+		
 	}
 }
