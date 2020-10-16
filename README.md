@@ -4,7 +4,7 @@ Spring Boot REST API with Elasticsearch.
 
 #### Referencies
 
-https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/ ![springlogo](https://logodix.com/logos/1614292)
 
 https://www.elastic.co/guide/en/kibana/current/install.html
 
