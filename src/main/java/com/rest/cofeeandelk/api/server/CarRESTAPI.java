@@ -1,5 +1,9 @@
 package com.rest.cofeeandelk.api.server;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,38 +24,53 @@ import com.rest.cofeeandelk.service.CarService;
 @RequestMapping(value = "api/car/v1")
 @RestController
 public class CarRESTAPI {
-	
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(CarRESTAPI.class);
-	
-	// Criando instância de RandomCarService para a variável carService através da anotação @Autowired
+
+	// Criando instância de RandomCarService para a variável carService através da
+	// anotação @Autowired
 	@Autowired
 	private CarService carService;
-	
-	// O método para retornar a response da request deve estar no controller - nesta classe, no caso.
+
+	// O método para retornar a response da request deve estar no controller - nesta
+	// classe, no caso.
 	// POJO -> INTERFACE -> IMPLEMENTAÇÃO DA INTERFACE -> CONTROLLER
-	
-	
-	// O método da resposta deve retornar o POJO. Uma instância de RandomCarService retirada de carService.
-	
+
+	// O método da resposta deve retornar o POJO. Uma instância de RandomCarService
+	// retirada de carService.
+
 	@GetMapping(value = "/random", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Car random() {
-		
+
 		return carService.generateCar();
 	}
-	
-	// Para o método POST, iremos receber um JSON como request body e, no caso, retornar uma string
-	// comprovando que conseguimos fazer o processo deserialization/unmarshalling embedded no Spring Boot Framework
-	// Iremos transformar o request body em JSON em um POJO e retornar Car.toString();
-	// Precisamos também aqui da annotation @RequestBody para capturar o JSON de request.
-	
-	@PostMapping(value = "/echo", consumes = MediaType.APPLICATION_JSON_VALUE)	
+
+	// Para o método POST, iremos receber um JSON como request body e, no caso,
+	// retornar uma string
+	// comprovando que conseguimos fazer o processo deserialization/unmarshalling
+	// embedded no Spring Boot Framework
+	// Iremos transformar o request body em JSON em um POJO e retornar
+	// Car.toString();
+	// Precisamos também aqui da annotation @RequestBody para capturar o JSON de
+	// request.
+
+	@PostMapping(value = "/echo", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String echo(@RequestBody Car car) {
-		
-		LOG.info("Car is {}", car);		
+
+		LOG.info("Car is {}", car);
 		return car.toString();
-		
+
 	}
-	
+
+	@GetMapping(value = "/random-cars", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Car> randomCars() {
+
+		var result = new ArrayList<Car>();
+		for (int i = 0; i < ThreadLocalRandom.current().nextInt(1, 10); i++) {
+			result.add(carService.generateCar());
+		}
+
+		return result;
+	}
 
 }
