@@ -71,7 +71,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 10. Spring Data interfaces have basic operations like save, delete, update, find all data etc. without the need to write statements and bind to variables;
 11. @Document annotation should be in the POJO that will be stored in Elasticsearch -> @Document(indexName = "<index-in-ES>")
 
-Code block to generate connection with Elasticsearch
+Code block to generate connection with Elasticsearch.
 
 ~~~
 
@@ -88,6 +88,17 @@ public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
 
 ~~~
 
+Interface to perform CRUD operations in Elasticsearch.
+
+~~~
+
+@Repository
+public interface CarElasticRepository extends ElasticsearchRepository<<POJO>, <Type of the identifier of the document, usually String>> {	
+	
+
+}
+
+~~~
 
 
 
