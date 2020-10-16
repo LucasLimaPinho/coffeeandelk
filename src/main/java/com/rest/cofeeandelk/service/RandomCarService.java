@@ -1,5 +1,6 @@
 package com.rest.cofeeandelk.service;
 
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.stereotype.Service;
@@ -27,9 +28,16 @@ public class RandomCarService implements CarService {
 		var price = ThreadLocalRandom.current().nextInt(5000, 120001);
 		var firstReleaseDate = RandomDateUtil.generateRandomLocalDate();
 		var result = new Car(brand, color, type);
+		// Random count between zero and list size
+		int randomCount = ThreadLocalRandom.current().nextInt(ADDITIONAL_FEATURES.size());
+		var additionalFeatures = new ArrayList<String>();
+		for (int i = 0; i < randomCount; i++) {
+			additionalFeatures.add(ADDITIONAL_FEATURES.get(i));
+		}
 		result.setAvailable(available);
 		result.setPrice(price);
 		result.setFirstReleaseDate(firstReleaseDate);
+		result.setAdditionalFeatures(additionalFeatures);
 				
 		return result;
 	}

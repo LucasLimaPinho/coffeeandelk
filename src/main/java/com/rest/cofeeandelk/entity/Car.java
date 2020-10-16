@@ -1,6 +1,7 @@
 package com.rest.cofeeandelk.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 // Car.java é o nosso POJO. Ele será transformado em JSON através de serialization já presente com Jackson no
 // Spring Boot framework. POJO é Plain Old Java Object e não deve possuir business logic - somente setters, getters,
@@ -10,6 +11,8 @@ import java.time.LocalDate;
 // Para ser serializado/marshealizado - a classe deve ser pública
 
 public class Car {
+
+	private List<String> additionalFeatures;
 
 	private boolean available;
 
@@ -27,9 +30,6 @@ public class Car {
 
 	}
 
-	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor
-	// vazio' - no-argumento constructor.
-	
 	public Car(boolean available, String brand, String color, LocalDate firstReleaseDate, int price, String type) {
 		super();
 		this.available = available;
@@ -50,6 +50,13 @@ public class Car {
 	// Também precisamos do método toString() para ser utilizado no HTTP method
 	// POST;
 
+	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor
+	// vazio' - no-argumento constructor.
+
+	public List<String> getAdditionalFeatures() {
+		return additionalFeatures;
+	}
+
 	public String getBrand() {
 		return brand;
 	}
@@ -66,17 +73,21 @@ public class Car {
 		return price;
 	}
 
+	public String getType() {
+		return type;
+	}
+
 	// Gerar construtor padrão de um POJO - ALT+SHIFT+S
 	// ALT+SHIFT+S também permite realizar o "Sort Members" para melhor readability
 	// do código
 	// ALT+SHIFT+F no Eclipse permite corrigir identação
 
-	public String getType() {
-		return type;
-	}
-
 	public boolean isAvailable() {
 		return available;
+	}
+
+	public void setAdditionalFeatures(List<String> additionalFeatures) {
+		this.additionalFeatures = additionalFeatures;
 	}
 
 	public void setAvailable(boolean available) {
