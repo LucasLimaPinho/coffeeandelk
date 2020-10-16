@@ -14,13 +14,13 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 
 ####  Dependencies
 
-1. Gradle Project
-2. Oracle JDK-11.0.8
-3. Spring Boot 2.3.4
-4. Elasticsearch 7.6.2
-5. Kibana 7.6.2
-6. Eclipse IDE
-7. Postman
+1. [Gradle Project](https://gradle.org/)
+2. [Oracle JDK-11.0.8](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+3. [Spring Boot 2.3.4](https://start.spring.io/)
+4. [Elasticsearch 7.6.2](https://www.elastic.co/pt/downloads/past-releases/elasticsearch-7-6-2)
+5. [Kibana 7.6.2](https://www.elastic.co/pt/downloads/past-releases/kibana-7-6-2)
+6. [Eclipse IDE](https://www.eclipse.org/downloads/)
+7. [Postman](https://www.postman.com/)
 
 
 #### Why Java Spring Boot?
