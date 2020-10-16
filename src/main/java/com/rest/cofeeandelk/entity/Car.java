@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -46,8 +48,8 @@ public class Car {
 	// marking this field para o Elasticsearch entender a formatação de data. Extremamente importante utilizar
 	// a anotação @Field e utilizar o formato ISO-8601 - yyyy-MM-dd
 	// Esse é o cuidado que precisamos ter quando fazer o mapping de date fields para o ElasticSearch.
-	// 
-	@Field
+	
+	@Field(type = FieldType.Date, format = DateFormat.date)
 	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Jakarta")
 	private LocalDate firstReleaseDate;
 
