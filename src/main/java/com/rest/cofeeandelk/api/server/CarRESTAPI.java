@@ -248,7 +248,7 @@ public class CarRESTAPI {
 	@ExceptionHandler(value = IllegalApiParamException.class)
 	public ResponseEntity<ErrorResponse> handleIllegalApiParamException(IllegalApiParamException e) {
 		
-		var message = "Exception: " + e.getMessage();
+		var message = "Exception API Param: " + e.getMessage();
 		LOG.warn(message);
 		var errorResponse = new ErrorResponse(message, LocalDateTime.now());
 		
