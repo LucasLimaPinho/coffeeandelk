@@ -1,6 +1,7 @@
 package com.rest.cofeeandelk.repository;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import org.springframework.stereotype.Repository;
 
 import com.rest.cofeeandelk.entity.Car;
 
@@ -8,7 +9,7 @@ import com.rest.cofeeandelk.entity.Car;
 
 // A segunda é o field identificador de Car, então usaremos String.
 
-
+@Repository
 public interface CarElasticRepository extends ElasticsearchRepository<Car, String> {
 	
 	
