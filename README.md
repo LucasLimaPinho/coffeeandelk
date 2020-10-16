@@ -201,3 +201,5 @@ Code Block for HTTP Response Customization with Pagination:
 	}
 
 ~~~
+ 
+ 4. Spring provides good mechanism to handle exceptions in the RESTAPIController. 
