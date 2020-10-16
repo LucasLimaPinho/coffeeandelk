@@ -75,7 +75,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 
 Code block to generate connection with Elasticsearch.
 
-~~~
+~~~java
 
 @Configuration
 public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
