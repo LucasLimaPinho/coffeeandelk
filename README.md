@@ -107,8 +107,11 @@ In Kibana Console Tool, you can check the allocation of documents in primary and
 We put up 03 nodes of Elasticsearch. Remember they are running in this URLs:
 
 Elasticsearch 7.6.2 Node 01: http://localhost:9200
+
 Elasticsearch 7.6.2 Node 02: http://localhost:9201
+
 Elasticsearch 7.6.2 Node 03: http://localhost:9203
+
 Kibana 7.6.2: http://localhost:5601
 
 ~~~http
