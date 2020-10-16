@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "c9864601-f6fc-4c69-8ce1-db84ae70f9e0",
+		"name": "CoffeAndElk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Elasticsearch - DocumentsCount",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/coffee-and-elk/_count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"coffee-and-elk",
+						"_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elasticsearch - Query Specific ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/coffee-and-elk/_doc/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"coffee-and-elk",
+						"_doc",
+						"{{id}}"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elasticsearch - Query All IDs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": {\r\n        \"match_all\": {         \r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/coffee-and-elk/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"coffee-and-elk",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elasticsearch - Cluster Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cluster/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cluster",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elasticsearch - Shards Allocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cat/shards?v",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"shards"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elasticsearch - Get Nodes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cat/nodes?v",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"nodes"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elasticsearch - Allocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cat/allocation?v",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"allocation"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elasticsearch - Get Indices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cat/indices?v",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"indices"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elasticsearch - Update Specific ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"_class\": \"com.rest.cofeeandelk.entity.Car\",\r\n        \"additionalFeatures\": [\r\n            \"GPS\",\r\n            \"alarm\"\r\n        ],\r\n        \"available\": false,\r\n        \"brand\": \"Mitsubishi\",\r\n        \"color\": \"Red\",\r\n        \"engine\": {\r\n            \"color\": \"Black\",\r\n            \"fuelType\": \"Hybrid\",\r\n            \"horsePower\": 191,\r\n            \"serialNumber\": \"X-COR\"\r\n        },\r\n        \"firstReleaseDate\": \"2015-07-04\",\r\n        \"price\": 25224,\r\n        \"tires\": [\r\n            {\r\n                \"manufacturer\": \"Dunlop\",\r\n                \"price\": 392,\r\n                \"size\": 17\r\n            },\r\n            {\r\n                \"manufacturer\": \"Goodyear\",\r\n                \"price\": 370,\r\n                \"size\": 15\r\n            },\r\n            {\r\n                \"manufacturer\": \"Dunlop\",\r\n                \"price\": 377,\r\n                \"size\": 16\r\n            }\r\n        ],\r\n        \"type\": \"SUV\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/coffee-and-elk/_doc/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"coffee-and-elk",
+						"_doc",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b7a161a3-6351-40a1-9446-63f76e99572d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1278657d-5142-4cfc-9cf2-1c55369980e6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e369f794-680d-431f-a8bd-4bfc9d348f78",
+			"key": "id",
+			"value": "Nd0QMnUBttvs7B7VM-1-"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
