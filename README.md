@@ -152,11 +152,12 @@ Elasticsearch can be queried with **query parameters**. Here is a code block usi
 
 ~~~java
 
-	@GetMapping(value = "/cars")
+@GetMapping(value = "/cars")
 	public List<Car> findCarByParams(@RequestParam String brand, @RequestParam String color){
 		
-		return carElasticRepository.findByBrandAndColor(brand, color);
+	return carElasticRepository.findByBrandAndColor(brand, color);
 		
 	}
+}
 
 ~~~
