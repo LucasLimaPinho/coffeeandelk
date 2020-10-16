@@ -39,6 +39,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 12. @JsonIgnore hide attribute in JSON, non conditionally;
 13. @JsonIgnoreProperties is another way of ignoring properties; You can type name of attributes you want to ignore on marshalling; This is a class level annotation, so it should be written before the class.
 14. @JsonUnwrapped: generate child objects attributes as its parents. @JsonUnwrapped makes attributes from nested fields become attriutes of the parent class; It is simples with example with "engine" and "car"; Engine attributes will no longer be under the umbrella of engine object and it will be shown regularly in the response API; After @JsonUnwrapped, "fuelType" and "horsePower" is part of car object in JSON;
+15. In application.yml, you can set jackson.property-naming-strategy to SNAKE_CASE and all the fields in the response will be in snake_case format;
 
 #### Why Gradle?
 
