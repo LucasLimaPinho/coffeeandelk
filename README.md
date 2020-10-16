@@ -20,6 +20,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 4. Elasticsearch 7.6.2
 5. Kibana 7.6.2
 6. Eclipse IDE
+7. Postman
 
 
 #### Why Java Spring Boot?
