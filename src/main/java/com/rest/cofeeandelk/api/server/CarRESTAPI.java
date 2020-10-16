@@ -116,4 +116,10 @@ public class CarRESTAPI {
 		return carElasticRepository.findByBrandAndColor(car.getBrand(), car.getColor());
 		
 	}
+	
+	@GetMapping(value = "/cars/{brand}/{color}")
+	public List<Car> findCarByPath(@PathVariable("brand") String brand, @PathVariable("color") String color){
+		
+		return carElasticRepository.findByBrandAndColor(brand, color);
+	}
 }
