@@ -56,6 +56,13 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 3. The executable jar will be in <path>/build/libs
 4. Spring Boot Configurations for deployment: application.properties or application.yml (depends on your preference for readability). By default, runs a Apache Tomcat server   on port 8080. We can change the port in application.yml with server.port:8001, per example; See more: https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
 
+#### Elasticsearch & Spring Data
+
+1. Spring provides automatic handler for pagination;
+2. Add 'org.springframework.boot:spring-boot-starter-data-elasticsearch' on build.gradle; Refresh Gradle Project;
+3. The class created as "ElasticsearchConfiguration" needs to have a @Configuration annotation from Spring Boot Framework; The class needs to extend "AbstractElasticSearchConfiguration";
+4. The most basic configuration is Elasticsearch Host and Port;
+5. By default, Elasticsearch will map java date as Elasticsearch long millisecond;
 
 
 
