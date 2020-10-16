@@ -173,3 +173,31 @@ Elasticsearch can be queried with **query parameters**. Here is a code block usi
 2. In our case, the ResponseEntity.Body can be of type "List<Car>" or a new class "ErrorResponse". We will use generic <Object>;
 3. ResponseEntity has a lot of constructors, but we can basically use the one with this arguments: "body", "http header" & "http status code"; In case we have a good request from the client, per example, we can return ResponseBody.ok().headers(<HttpHeaders>).body(List<Car>);
 	
+Code Block for HTTP Response Customization with Pagination:
+
+~~~java
+
+@GetMapping(value = "/cars/{brand}/{color}")
+	public ResponseEntity<Object> findCarByPath(@PathVariable("brand") String brand,
+		@PathVariable("color") String color, @RequestParam(defaultValue = "0") int page,
+		@RequestParam(defaultValue = "10") int size) {
+
+		var headers = new HttpHeaders();
+		headers.add(HttpHeaders.SERVER, "Spring");
+		headers.add("X-Custom-Header", "Custom Response Header");
+		
+		if (StringUtils.isNumeric(color)) {
+			
+			var errorResponse = new ErrorResponse("Invalid color : " + color, LocalDateTime.now());
+			
+			return new ResponseEntity<Object>(errorResponse, headers, HttpStatus.BAD_REQUEST);
+		}		
+
+		var pageable = PageRequest.of(page, size, Sort.by(Direction.DESC, "price"));
+		
+		var cars = carElasticRepository.findByBrandAndColor(brand, color, pageable).getContent();
+		
+		return ResponseEntity.ok().headers(headers).body(cars);
+	}
+
+~~~
