@@ -9,12 +9,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.cofeeandelk.entity.Car;
+import com.rest.cofeeandelk.repository.CarElasticRepository;
 import com.rest.cofeeandelk.service.CarService;
 
 // Para gerar um carro aleatório, precisamos de um @Service que irá usar a annotation @Autowired.
@@ -26,6 +29,9 @@ import com.rest.cofeeandelk.service.CarService;
 public class CarRESTAPI {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CarRESTAPI.class);
+
+	@Autowired
+	private CarElasticRepository carElasticRepository;
 
 	// Criando instância de RandomCarService para a variável carService através da
 	// anotação @Autowired
@@ -72,5 +78,38 @@ public class CarRESTAPI {
 
 		return result;
 	}
+
+	@GetMapping(value = "/count")
+	public String count() {
+		return "There are : " + carElasticRepository.count() + " cars";
+
+	}
+
+	@PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String saveCar(@RequestBody Car car) {
+
+		var id = carElasticRepository.save(car).getId();
+
+		return "Saved with ID : " + id;
+
+	}
+
+	@GetMapping(value = "/{id}")
+	public Car getCar(@PathVariable("id") String carId) {
+
+		return carElasticRepository.findById(carId).orElse(null);
+
+	}
+	
+	@PutMapping(value = "/{id}")
+	public String updateCar(@PathVariable("id") String carId, @RequestBody Car updatedCar) {
+		
+		updatedCar.setId(carId);
+		var newCar = carElasticRepository.save(updatedCar);
+		
+		return "Updated car : " + newCar.getId();
+	}
+	
+	
 
 }

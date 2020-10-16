@@ -33,7 +33,7 @@ dependencies {
 	implementation "io.micrometer:micrometer-registry-elastic:${micrometerRegistryVersion}"
 	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
