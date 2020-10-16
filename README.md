@@ -1,7 +1,5 @@
 # Coffee and ELK
 
-_"So give me Coffee and ELK..."_ - [Blur](https://www.youtube.com/watch?v=6oqXVx3sBOk)
-
 Spring Boot REST API with Elasticsearch.
 
 #### Referencies
