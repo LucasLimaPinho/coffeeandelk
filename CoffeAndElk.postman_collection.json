@@ -385,6 +385,30 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Spring API - Request With Path Parameters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/car/v1/cars/Toyota/Red",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"car",
+						"v1",
+						"cars",
+						"Toyota",
+						"Red"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -411,7 +435,7 @@
 	],
 	"variable": [
 		{
-			"id": "90d5e1be-431d-46ac-834f-f05c4c18dbd7",
+			"id": "19d769b7-20a1-402f-9349-899a0b477008",
 			"key": "id",
 			"value": "Nd0QMnUBttvs7B7VM-1-"
 		}
