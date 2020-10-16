@@ -30,6 +30,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 7. There are 5 levels of logs: log.trace(), log.debug(), log.info(), log.warn() & log.error()
 
       **Not sent to appender**: log.trace(), log.debug() & longo & info
+      
       **Sent to appender**: log.warn() & log.error()
       
 8. Spring Boot already has **Jackson** to serialize/marshall Plain Old Java Objects (POJO) to JSON; POJO are objects from classes that has no business logic - only method for setters, getters, toString, equals, hashCode; Gradle already handles Jackson dependency; For converting POJO into JSON, Jackson will call GETTERS; For converting JSON to POJO, Jackson will call SETTERS;
