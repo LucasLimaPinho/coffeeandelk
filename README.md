@@ -37,7 +37,7 @@ https://www.udemy.com/course/practical-java-spring-boot-rest-api-with-elasticsea
 6. Spring use logback framework - src/main/resources/logback-spring.xml; Appender - where to output logs, Logger: what to log; We can send our logs to files (FileAppender) and console (ConsoleAppender);
 7. There are 5 levels of logs: log.trace(), log.debug(), log.info(), log.warn() & log.error()
 
-      **Not sent to appender**: log.trace(), log.debug() & longo & info
+      **Not sent to appender**: log.trace(), log.debug() & log.info()
       
       **Sent to appender**: log.warn() & log.error()
       
