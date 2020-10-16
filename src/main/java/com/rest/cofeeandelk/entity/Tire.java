@@ -1,11 +1,13 @@
 package com.rest.cofeeandelk.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Tire {
 
 	private String manufacturer;
 
+	@JsonIgnore
 	private int price;
 
 	@JsonProperty(value = "diameter")
