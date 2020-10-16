@@ -20,10 +20,14 @@ public class Car {
 
 	private String color;
 
+	private Engine engine;
+
 	private LocalDate firstReleaseDate;
 
 	private int price;
-
+	
+	private List<Tire> tires;
+	
 	private String type;
 
 	public Car() {
@@ -40,6 +44,20 @@ public class Car {
 		this.type = type;
 	}
 
+	public Car(List<String> additionalFeatures, boolean available, String brand, String color,
+			LocalDate firstReleaseDate, int price, String type, Engine engine, List<Tire> tires) {
+		super();
+		this.additionalFeatures = additionalFeatures;
+		this.available = available;
+		this.brand = brand;
+		this.color = color;
+		this.firstReleaseDate = firstReleaseDate;
+		this.price = price;
+		this.type = type;
+		this.engine = engine;
+		this.tires = tires;
+	}
+
 	public Car(String brand, String color, String type) {
 		super();
 		this.brand = brand;
@@ -49,9 +67,6 @@ public class Car {
 	// Gere automaticamente setters and getters com shortcut ALF+SHIFT+S
 	// Também precisamos do método toString() para ser utilizado no HTTP method
 	// POST;
-
-	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor
-	// vazio' - no-argumento constructor.
 
 	public List<String> getAdditionalFeatures() {
 		return additionalFeatures;
@@ -65,6 +80,13 @@ public class Car {
 		return color;
 	}
 
+	public Engine getEngine() {
+		return engine;
+	}
+
+	// Para o unmarshalling ocorrer, obrigatoriamente devemos ter um 'construtor
+	// vazio' - no-argumento constructor.
+
 	public LocalDate getFirstReleaseDate() {
 		return firstReleaseDate;
 	}
@@ -73,14 +95,13 @@ public class Car {
 		return price;
 	}
 
+	public List<Tire> getTires() {
+		return tires;
+	}
+
 	public String getType() {
 		return type;
 	}
-
-	// Gerar construtor padrão de um POJO - ALT+SHIFT+S
-	// ALT+SHIFT+S também permite realizar o "Sort Members" para melhor readability
-	// do código
-	// ALT+SHIFT+F no Eclipse permite corrigir identação
 
 	public boolean isAvailable() {
 		return available;
@@ -89,6 +110,11 @@ public class Car {
 	public void setAdditionalFeatures(List<String> additionalFeatures) {
 		this.additionalFeatures = additionalFeatures;
 	}
+
+	// Gerar construtor padrão de um POJO - ALT+SHIFT+S
+	// ALT+SHIFT+S também permite realizar o "Sort Members" para melhor readability
+	// do código
+	// ALT+SHIFT+F no Eclipse permite corrigir identação
 
 	public void setAvailable(boolean available) {
 		this.available = available;
@@ -102,6 +128,10 @@ public class Car {
 		this.color = color;
 	}
 
+	public void setEngine(Engine engine) {
+		this.engine = engine;
+	}
+
 	public void setFirstReleaseDate(LocalDate firstReleaseDate) {
 		this.firstReleaseDate = firstReleaseDate;
 	}
@@ -110,14 +140,19 @@ public class Car {
 		this.price = price;
 	}
 
+	public void setTires(List<Tire> tires) {
+		this.tires = tires;
+	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
 
 	@Override
 	public String toString() {
-		return "Car [available=" + available + ", brand=" + brand + ", color=" + color + ", firstReleaseDate="
-				+ firstReleaseDate + ", price=" + price + ", type=" + type + "]";
+		return "Car [additionalFeatures=" + additionalFeatures + ", available=" + available + ", brand=" + brand
+				+ ", color=" + color + ", firstReleaseDate=" + firstReleaseDate + ", price=" + price + ", type=" + type
+				+ ", engine=" + engine + ", tires=" + tires + "]";
 	}
 
 }
