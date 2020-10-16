@@ -37,6 +37,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 10. **O POJO sempre deve ter um no-argument constructor para que possa ser realizado o unmarshalling no método HTTP POST**
 11. @JsonInclude may stablish someconditions for the field to be exposed in the response API; **Show attribute conditionally**. Example: show attribute only if is not empty or not null.      
 12. @JsonIgnore hide attribute in JSON, non conditionally;
+13. @JsonIgnoreProperties is another way of ignoring properties; You can type name of attributes you want to ignore on marshalling;
 
 #### Why Gradle?
 
