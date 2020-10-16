@@ -112,7 +112,7 @@ Elasticsearch 7.6.2 Node 01: http://localhost:9200
 
 Elasticsearch 7.6.2 Node 02: http://localhost:9201
 
-Elasticsearch 7.6.2 Node 03: http://localhost:9203
+Elasticsearch 7.6.2 Node 03: http://localhost:9202
 
 Kibana 7.6.2: http://localhost:5601
 
