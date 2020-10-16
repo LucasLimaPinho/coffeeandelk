@@ -38,7 +38,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 11. @JsonInclude may stablish someconditions for the field to be exposed in the response API; **Show attribute conditionally**. Example: show attribute only if is not empty or not null.      
 12. @JsonIgnore hide attribute in JSON, non conditionally;
 13. @JsonIgnoreProperties is another way of ignoring properties; You can type name of attributes you want to ignore on marshalling; This is a class level annotation, so it should be written before the class.
-14. @JsonUnwrapped: generate child objects attributes as its parents. @JsonUnwrapped makes attributes from nested fields become attriutes of the parent class; It is simples with example with "engine" and "car";
+14. @JsonUnwrapped: generate child objects attributes as its parents. @JsonUnwrapped makes attributes from nested fields become attriutes of the parent class; It is simples with example with "engine" and "car"; Engine attributes will no longer be under the umbrella of engine object and it will be shown regularly in the response API.
 
 #### Why Gradle?
 
