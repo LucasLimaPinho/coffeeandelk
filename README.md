@@ -92,7 +92,7 @@ public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
 
 Interface to perform CRUD operations in Elasticsearch.
 
-~~~
+~~~java
 
 @Repository
 public interface CarElasticRepository extends ElasticsearchRepository<<POJO>, <Type of the identifier of the document, usually String>> {	
@@ -111,9 +111,9 @@ Elasticsearch 7.6.2 Node 02: http://localhost:9201
 Elasticsearch 7.6.2 Node 03: http://localhost:9203
 Kibana 7.6.2: http://localhost:5601
 
-~~~
+~~~http
 
-**GET** /_cluster/health
+GET /_cluster/health
 
 GET /_cat/shards?v
 
