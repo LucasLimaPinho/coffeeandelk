@@ -5,6 +5,7 @@ import java.time.LocalTime;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +22,16 @@ public class DefaultRestApi {
 	@GetMapping(value = "/time")
 	public String time() {
 		return LocalTime.now().toString();
+	}
+	
+	@GetMapping(value = "/header-one")
+	public String headerByAnnotation(@RequestHeader(name="User-Agent") String headerUserAgent,
+			@RequestHeader(name="coffee-and-elk") String headerCoffeeAndELK) {
+		
+		return "User-agent: " + headerUserAgent + ", CoffeAndELK :" + headerCoffeeAndELK;
+		
+		
+		
 	}
 
 }
