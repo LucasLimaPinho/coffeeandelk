@@ -399,8 +399,6 @@ void testFindCarByParams() {
 
 implementation('org.springframework.boot:spring-boot-starter-actuator')
 implementation "io.micrometer:micrometer-registry-elastic:${micrometerRegistryVersion}"
-
-
 ~~~~
 
 2. **Insert metric data into Elasticsearch**: input this in application.yml:
@@ -413,7 +411,6 @@ management:
    elastic:
     step: 30s
     host: http://localhost:9200
-    
  ~~~~
  
  
