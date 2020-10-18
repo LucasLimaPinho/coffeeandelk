@@ -256,6 +256,32 @@ public class MyGlobalExceptionHandler {
 
 ~~~
 
+#### Unit Tests
+
+1. If we have few endpoints, mannually testing with Postman sounds ok. But if we have a lot of endpoints, it is imporant that we test automatically with unit tests;
+2. Spring Boot intializr includes dependency to Spring Boot Test <org.springframework.boot:spring-boot-starter-test>; We will use JUnit Framework with Mockito to call the endpoint and check it's returned value;
+3. To do mocking, we need to autowire a WebTestClient variable; Annotation @SpringBootTest will do all the configuration behind the screens;
+
+Code block to test HTTP status code and expected body of an HTTP GET REQUEST in "/api/welcome" endpoint using WebTestClient.class and @SpringBootTest annotation:
+~~~java
+
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+class DefaultRestApiTest {
+
+@Autowired
+private WebTestClient webTestClient;
+
+@Test
+void testWelcome() {
+	
+	webTestClient.get().uri("/api/welcome").exchange().
+	expectStatus().is2xxSuccessful().
+	expectBody(String.class).
+	value(IsEqualIgnoringCase.equalToIgnoringCase("Just give me Coffe & TV, oops, Elastic Stack (ElasticSearch, Logstash and Kibana)!"));
+		
+}
+
+~~~
 
  
  
