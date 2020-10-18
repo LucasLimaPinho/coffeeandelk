@@ -68,9 +68,4 @@ class DefaultRestApiTest {
 		
 	}
 
-	@Test
-	void testHeaderByRequest() {
-		fail("Not yet implemented");
-	}
-
 }
