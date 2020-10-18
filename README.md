@@ -445,3 +445,4 @@ dependencies (
 ~~~
 
 * Documentation is generated in: http://localhost:8001/swagger-ui.html
+* @Tag (class) and @Operation (method) are annotations that help you enhance the OpenAPI documentation with descriptions;
