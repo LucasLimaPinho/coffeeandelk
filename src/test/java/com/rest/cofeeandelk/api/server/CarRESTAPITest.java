@@ -3,6 +3,8 @@ package com.rest.cofeeandelk.api.server;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.queryParam;
 
 import java.time.Duration;
 
@@ -68,33 +70,24 @@ class CarRESTAPITest {
 	}
 
 	@Test
-	void testGetCar() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testUpdateCar() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testFindCarByBrandAndColor() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testFindCarByPath() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testFindCarByParams() {
-		fail("Not yet implemented");
-	}
 
-	@Test
-	void testFindCarReleaseAfter() {
-		fail("Not yet implemented");
+		final int size = 5;
+
+		for (var brand : CarService.BRANDS) {
+			for (var color : CarService.COLORS) {
+
+				webTestClient.get()
+						.uri(uriBuilder -> uriBuilder.path("/api/car/v1/cars").queryParam("brand", brand)
+								.queryParam("color", color).queryParam("size", size).queryParam("page", 0).build())
+						.exchange().expectBodyList(Car.class).value(cars -> {
+
+							assertNotNull(cars);
+							assertTrue(cars.size() <= size);
+
+						});
+			}
+		}
 	}
 
 }
