@@ -262,7 +262,8 @@ public class MyGlobalExceptionHandler {
 2. Spring Boot intializr includes dependency to Spring Boot Test <org.springframework.boot:spring-boot-starter-test>; We will use JUnit Framework with Mockito to call the endpoint and check it's returned value;
 3. To do mocking, we need to autowire a WebTestClient variable; Annotation @SpringBootTest will do all the configuration behind the screens;
 
-Code block to test HTTP status code and expected body of an HTTP GET REQUEST in "/api/welcome" endpoint using WebTestClient.class and @SpringBootTest annotation:
+**Unit Test**: Code block to test HTTP status code and expected body of an HTTP GET REQUEST in "/api/welcome" endpoint using WebTestClient.class and @SpringBootTest annotation:
+
 ~~~java
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -283,7 +284,7 @@ void testWelcome() {
 
 ~~~
 
-We can also test the headers of the API Request:
+**Unit Test**: Test the headers of the API Request:
 
 ~~~java
 
@@ -304,7 +305,7 @@ void testHeaderByAnnotation() {
  
 ~~~
 
-Unit testing Random generation in CarRESTApi:
+**Unit test**: Random generation in CarRESTApi:
 
 
 ~~~java
@@ -327,3 +328,35 @@ void testRandom() {
 }
 
 ~~~
+
+**Unit Test**: Input data into Elasticsearch with HTTP Post.
+
+~~~java
+
+// We inject a CarService bean into the carService field.
+// The @Qualifier("randomCarService") specifies that it is a RandomCarService
+// bean.
+// CarService is an interface; RandomCarService implements CarService;
+// So we can have multiple beans implementing the interface CarService;
+// The annotation @Qualifier will uniquely specify what type of bean to be
+// inject with loose-coupling
+
+@Autowired
+@Qualifier("randomCarService")
+private CarService carService;
+
+@Test
+void testSaveCar() {
+
+	var randomCar = carService.generateCar();
+	// Assert that the HTTP POST Request will last less than 1 second
+	for (int i = 0; i < 100; i++) {
+		System.out.println("Inserting " + i + " document in Elasticsearch");
+		assertTimeout(Duration.ofSeconds(1),
+					() -> webTestClient.post().uri("api/car/v1").contentType(MediaType.APPLICATION_JSON)
+							.bodyValue(randomCar).exchange().expectStatus().is2xxSuccessful());
+
+	}
+}
+
+~~~~
