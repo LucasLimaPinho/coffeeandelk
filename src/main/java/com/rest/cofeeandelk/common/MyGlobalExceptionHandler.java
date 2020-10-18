@@ -14,18 +14,17 @@ import com.rest.cofeeandelk.exception.IllegalApiParamException;
 
 @RestControllerAdvice
 public class MyGlobalExceptionHandler {
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(MyGlobalExceptionHandler.class);
-			
 	@ExceptionHandler(value = IllegalApiParamException.class)
 	public ResponseEntity<ErrorResponse> handleIllegalApiParamException(IllegalApiParamException e) {
-		
+
 		var message = "Exception API Param from GlobalExceptionHandler : " + e.getMessage();
 		LOG.warn(message);
 		var errorResponse = new ErrorResponse(message, LocalDateTime.now());
-		
+
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
-		
+
 	}
 
 }
