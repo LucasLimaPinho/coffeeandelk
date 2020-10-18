@@ -392,10 +392,14 @@ void testFindCarByParams() {
 
 1. **Spring Actuator**: automatic data metric collector inputed in Elasticsearch. Use this dependencies in build.gradle:
 
+
+
 ~~~java
+
 
 implementation('org.springframework.boot:spring-boot-starter-actuator')
 implementation "io.micrometer:micrometer-registry-elastic:${micrometerRegistryVersion}"
+
 
 ~~~~
 
