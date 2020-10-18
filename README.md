@@ -427,6 +427,7 @@ management:
 
 * **springdoc** is a library that help us work with **Swagger** from Java code;
 
+
 Add this dependency to build.gradle:
 
 ~~~gradle
@@ -435,7 +436,7 @@ ext (
 	set("springdocVersion", "1.4.3")
 )
 
-dependencies(
+dependencies (
 
 	implementation "org.springdoc:springdoc-openapi-webflux-ui:${springdocVersion}"
 
