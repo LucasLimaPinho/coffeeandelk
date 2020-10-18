@@ -443,3 +443,5 @@ dependencies (
 )
 
 ~~~
+
+* Documentation is generated in: http://localhost:8001/swagger-ui.html
