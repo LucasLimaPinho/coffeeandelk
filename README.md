@@ -422,3 +422,21 @@ management:
 		- After creating an Index Pattern, it will be available in the [Kibana Discover](http://localhost:5601/app/kibana#/discover?_g=()) left menu;
 	- You can create Dashboards with your saved Visualizations; [Simple Example](http://localhost:5601/app/kibana#/dashboard/f0831f60-1190-11eb-a71f-3f7cca0c03ce?_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(),gridData:(h:15,i:'5f55692f-503a-4d27-b44f-97d0ab092f9a',w:24,x:0,y:0),id:'959c3fa0-1190-11eb-a71f-3f7cca0c03ce',panelIndex:'5f55692f-503a-4d27-b44f-97d0ab092f9a',type:visualization,version:'7.6.2'),(embeddableConfig:(),gridData:(h:15,i:'22aa0f02-dbe6-489e-b263-c9ff47a294b0',w:24,x:24,y:0),id:ed336a10-118e-11eb-a71f-3f7cca0c03ce,panelIndex:'22aa0f02-dbe6-489e-b263-c9ff47a294b0',type:visualization,version:'7.6.2'),(embeddableConfig:(),gridData:(h:15,i:'3c440c6f-225c-4dc4-a2a6-88f9c7e659a6',w:24,x:0,y:15),id:b42e0610-1190-11eb-a71f-3f7cca0c03ce,panelIndex:'3c440c6f-225c-4dc4-a2a6-88f9c7e659a6',type:visualization,version:'7.6.2'),(embeddableConfig:(),gridData:(h:15,i:'83562d1c-f042-442a-b0ed-f8500079bea1',w:24,x:24,y:15),id:e5689770-118d-11eb-a71f-3f7cca0c03ce,panelIndex:'83562d1c-f042-442a-b0ed-f8500079bea1',type:visualization,version:'7.6.2')),query:(language:kuery,query:''),timeRestore:!f,title:'Simple%20Dashboard',viewMode:view)&_g=(filters:!(),refreshInterval:(pause:!f,value:30000),time:(from:now-15m,to:now)))
  
+
+#### Automatic API Documentation
+
+* **springdoc** is a library that help us work with **Swagger** from Java code;
+
+Add this dependency to build.gradle:
+
+~~~java
+
+ext (
+	set("springdocVersion", "1.4.3")
+)
+
+dependencies(
+implementation "org.springdoc:springdoc-openapi-webflux-ui:${springdocVersion}"
+)
+
+~~~
