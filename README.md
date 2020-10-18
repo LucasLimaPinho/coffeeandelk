@@ -420,4 +420,5 @@ management:
  	- You will see a drop down with all the index coming from @Document in Java Source code;
 	- You will also see a index metrics-{year}-{month} coming from Spring Data Actuator;
 		- After creating an Index Pattern, it will be available in the [Kibana Discover](http://localhost:5601/app/kibana#/discover?_g=()) left menu;
+	- You can create Dashboards with your saved Visualizations;
  
