@@ -283,5 +283,25 @@ void testWelcome() {
 
 ~~~
 
+We can also test the headers of the API Request:
+
+~~~java
+
+@Test
+void testHeaderByAnnotation() {
+		
+	var headerOne = "Spring Boot Test";
+	var headerTwo = "Spring Boot Test with Coffee-and-ELK";
+		
+	webTestClient.get().uri("/api/header-one").header("User-agent", headerOne)
+	.header("Coffee-and-Elk", headerTwo).exchange().expectBody(String.class)
+	.value(v -> {
+		assertTrue(v.contains(headerOne));
+		assertTrue(v.contains(headerTwo));
+	});
+		
+}
  
- 
+~~~
+
+
