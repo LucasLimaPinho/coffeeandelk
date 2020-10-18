@@ -390,7 +390,7 @@ void testFindCarByParams() {
 
 #### Kibana and Elasticsearch Monitoring
 
-1. **Spring Actuator**: automatic data metric collector inputed in Elasticsearch. Use this dependencies in build.gradle:
+* **Spring Actuator**: automatic data metric collector inputed in Elasticsearch. Use this dependencies in build.gradle:
 
 
 
@@ -401,7 +401,7 @@ implementation('org.springframework.boot:spring-boot-starter-actuator')
 implementation "io.micrometer:micrometer-registry-elastic:${micrometerRegistryVersion}"
 ~~~~
 
-2. **Insert metric data into Elasticsearch**: input this in application.yml:
+* **Insert metric data into Elasticsearch**: input this in application.yml:
 
 ~~~yml
 
@@ -415,7 +415,7 @@ management:
  
  At this point, Spring Data Actuator already pushes metric data into Elasticsearch every 30s.
  
- 3. Visualization with **Kibana**: You must [create an index pattern](http://localhost:5601/app/kibana#/management/kibana/index_pattern?_g=())
+ * Visualization with **Kibana**: You must [create an index pattern](http://localhost:5601/app/kibana#/management/kibana/index_pattern?_g=())
  
  	- You will see a drop down with all the index coming from @Document in Java Source code;
 	- You will also see a index metrics-{year}-{month} coming from Spring Data Actuator;
