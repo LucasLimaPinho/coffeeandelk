@@ -360,3 +360,30 @@ void testSaveCar() {
 }
 
 ~~~~
+
+**Unit Test**: Test HTTP GET with params and pagination.
+
+~~~java
+
+@Test
+void testFindCarByParams() {
+
+	final int size = 5;
+
+	for (var brand : CarService.BRANDS) {
+		for (var color : CarService.COLORS) {
+
+			webTestClient.get()
+					.uri(uriBuilder -> uriBuilder.path("/api/car/v1/cars").queryParam("brand", brand)
+						.queryParam("color", color).queryParam("size", size).queryParam("page", 0).build())
+						.exchange().expectBodyList(Car.class).value(cars -> {
+
+							assertNotNull(cars);
+							assertTrue(cars.size() <= size);
+
+						});
+		}
+	}
+}
+
+~~~
