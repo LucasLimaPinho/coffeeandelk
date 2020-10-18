@@ -429,14 +429,16 @@ management:
 
 Add this dependency to build.gradle:
 
-~~~java
+~~~gradle
 
 ext (
 	set("springdocVersion", "1.4.3")
 )
 
 dependencies(
-implementation "org.springdoc:springdoc-openapi-webflux-ui:${springdocVersion}"
+
+	implementation "org.springdoc:springdoc-openapi-webflux-ui:${springdocVersion}"
+
 )
 
 ~~~
