@@ -265,6 +265,9 @@ public class MyGlobalExceptionHandler {
 Code block to test HTTP status code and expected body of an HTTP GET REQUEST in "/api/welcome" endpoint using WebTestClient.class and @SpringBootTest annotation:
 ~~~java
 
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+class DefaultRestApiTest {
+
 @Autowired
 private WebTestClient webTestClient;
 
