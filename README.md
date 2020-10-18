@@ -304,4 +304,26 @@ void testHeaderByAnnotation() {
  
 ~~~
 
+Unit testing Random generation in CarRESTApi:
 
+
+~~~java
+
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+class CarRESTAPITest {
+
+@Autowired
+private WebTestClient webTestClient;
+
+@Test
+void testRandom() {
+		
+	webTestClient.get().uri("/api/car/v1/random").exchange().expectBody(Car.class)
+	.value(car -> {
+		assertTrue(CarService.BRANDS.contains(car.getBrand()));
+		assertTrue(CarService.COLORS.contains(car.getColor()));
+	});
+		
+}
+
+~~~
