@@ -403,3 +403,18 @@ implementation "io.micrometer:micrometer-registry-elastic:${micrometerRegistryVe
 
 ~~~~
 
+2. **Insert metric data into Elasticsearch**: input this in application.yml:
+
+~~~yml
+
+management:
+ metrics:
+  export:
+   elastic:
+    step: 30s
+    host: http://localhost:9200
+    
+ ~~~~
+ 
+ 
+ 
