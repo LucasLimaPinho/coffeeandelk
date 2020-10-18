@@ -12,11 +12,16 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping(value = "/api")
+@Tag(name = "Default REST API", description = "Documentation for Default REST API")
 public class DefaultRestApi {
 
 	@GetMapping(value = "/welcome")
+	@Operation(summary = "Welcome", description = "Description for welcome API")
 	public String welcome() {
 		System.out.println(StringUtils.join("Just give me", " coffee", " and", " TV"));
 		return "Just give me Coffe & TV, oops, Elastic Stack (ElasticSearch, Logstash and Kibana)!";
